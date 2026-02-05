@@ -4,22 +4,6 @@ struct ContentView: View {
     @EnvironmentObject private var viewModel: DashboardViewModel
 
     var body: some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                NavigationStack {
-                    dashboardContent
-                }
-            } else {
-                NavigationView {
-                    dashboardContent
-                }
-                .navigationViewStyle(.stack)
-            }
-        }
-    }
-
-    @ViewBuilder
-    private var dashboardContent: some View {
         ZStack {
             if let destinationURL = viewModel.destinationURL {
                 DashboardWebView(
@@ -62,17 +46,6 @@ struct ContentView: View {
                     .background(.ultraThinMaterial, in: Circle())
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding(24)
-            }
-        }
-        .navigationTitle("Dashboard 3D")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    viewModel.reloadWebContent()
-                } label: {
-                    Label("Recargar", systemImage: "arrow.clockwise")
-                }
-                .disabled(!viewModel.canReload)
             }
         }
         .task {
