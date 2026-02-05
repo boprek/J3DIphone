@@ -272,7 +272,7 @@
 			};
 			name = Release;
 		};
-		D0E63B462D8E4D2E00A1B1A1 /* Debug */ = {
+		D0E63C012D8E4D2E00A1B1A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -297,7 +297,7 @@
 			};
 			name = Debug;
 		};
-		D0E63B472D8E4D2E00A1B1A1 /* Release */ = {
+		D0E63C022D8E4D2E00A1B1A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -337,8 +337,8 @@
 		D0E63B432D8E4D2E00A1B1A1 /* Build configuration list for PBXNativeTarget "DashboardApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D0E63B462D8E4D2E00A1B1A1 /* Debug */,
-				D0E63B472D8E4D2E00A1B1A1 /* Release */,
+				D0E63C012D8E4D2E00A1B1A1 /* Debug */,
+				D0E63C022D8E4D2E00A1B1A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
