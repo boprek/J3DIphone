@@ -1,0 +1,67 @@
+<div id = "%%id_inspeccion%%" class="Inspeccion Linea %%linea_origen%%" camsfailed="%%CamsFailed%%" style ="position:relative;top:0px;left:-25px;">		
+	<div class="InfoInspeccion" style = "position:relative; top:4px; left:6px;" >
+		<text id = "UltRelai" class="DatoInspeccion" style="position:absolute;top:5px;left:194px">PJI %%vis%%</text>
+		<text id = "UltVis" class="DatoInspeccion"   style="position:absolute;top:5px;left:338px"></text>
+		<text id = "UltModelo" class="DatoInspeccion" style="position:absolute;top:5px;left:474px">Modelo %%modelo%%.%%variante%% (%%codigo_modelo%%)</text>
+		<text id = "UltColor1" class="DatoInspeccion" style="position:absolute;top:5px;left:684px">(%%codigo_color1%%) %%color1%%</text>
+		<div  id="UltColorWeb1" class="ColorWebInspeccion" style="position:absolute;top:3px;left:656px;background-color:#%%color_web1%%"></div>
+		<text id = "UltColor2" class="DatoInspeccion" style="position:absolute;top:5px;left:914px;display:%%biton%%">(%%codigo_color2%%) %%color2%%</text>
+		<div  id="UltColorWeb2" class="ColorWebInspeccion" style="position:absolute;top:3px;left:886px;background-color:#%%color_web2%%;display:%%biton%%"></div>
+		<text id = "UltPais"   class="DatoInspeccion" style="position:absolute;top:5px;left:1134px">País %%pais%%</text>
+		<text id = "UltSkid"   class="DatoInspeccion" style="position:absolute;top:5px;left:1400px">Trineo %%relai%%</text>
+		<text id = "UltFecha"     class="DatoInspeccion" style="position:absolute;top:5px;left:50px">%%fecha%%</text>
+	</div>
+	<div class="ImagenesInspeccion" style="position:relative; top:-45px; left:50px;">
+		<div id="zona1" class="ZonaInspeccion" style="position:absolute;top:70px;left:5px;display:%%zona1_enable%%" onclick="AdminUI.abreZoom(1,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg"  version="1.0" width="288" height="162" top="10px">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg1%%
+				</g>
+			</svg>
+		</div>
+		<div id="zona2" class="ZonaInspeccion" style="position:absolute;top:70px;left:250px;display:%%zona2_enable%%" onclick="AdminUI.abreZoom(2,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="288" height="162">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg2%%
+				</g>
+			</svg>
+		</div>
+		<div id="zona3" class="ZonaInspeccion" style="position:absolute;top:70px;left:1000px;display:%%zona3_enable%%" onclick="AdminUI.abreZoom(3,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="288" height="162">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg3%%
+				</g>
+			</svg>
+		</div>
+		<div id="zona4" class="ZonaInspeccion" style="position:absolute;top:70px;left:500px;display:%%zona4_enable%%" onclick="AdminUI.abreZoom(4,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="288" height="162">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg4%%
+				</g>
+			</svg>
+		</div>
+		<div id="zona5" class="ZonaInspeccion" style="position:absolute;top:70px;left:750px;display:%%zona5_enable%%" onclick="AdminUI.abreZoom(5,%%id_inspeccion%%,'%%calculated%%')" >
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="288" height="162">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg5%%
+				</g>
+			</svg>
+		</div>
+		<div id="zona6" class="ZonaInspeccion" style="position:absolute;top:70px;left:1250px;display:%%zona6_enable%%" onclick="AdminUI.abreZoom(6,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="288" height="162">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg6%%
+				</g>
+			</svg>
+		</div>
+		<div id="zona7" class="ZonaInspeccion" style="position:absolute;top:70px;left:1500px;display:%%zona7_enable%%" onclick="AdminUI.abreZoom(7,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="288" height="162">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.12)">
+					%%svg7%%
+				</g>
+			</svg>
+		</div>
+	</div>
+	<img id ="boton_imprimir" type="button" style="position:absolute; top:115px; left:3px; display:block" onclick="AdminUI.imprimir(%%id_inspeccion%%);" ></img>
+	<img id ="boton_guardar" type="button" style="position:absolute; top:165px; left:3px; display:%%calculated%%" onclick="AdminUI.guardar(%%id_inspeccion%%);"></img>
+</div>

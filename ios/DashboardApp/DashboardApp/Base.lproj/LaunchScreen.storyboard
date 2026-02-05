@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC "-//Apple//DTD XIB 3.0//EN" "http://www.apple.com/DTDs/IBdocuments-3.0.dtd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="LaunchScreenController">
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="LaunchScene">
+            <objects>
+                <viewController id="LaunchScreenController" customClass="UIViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LaunchView">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.0235" green="0.0823" blue="0.1725" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TitleLabel">
+                                <rect key="frame" x="60" y="382" width="270" height="80"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                <color key="textColor" cocoaTouchSystemColor="whiteColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TitleLabel" firstAttribute="centerY" secondItem="LaunchView" secondAttribute="centerY" id="CenterY"/>
+                            <constraint firstItem="TitleLabel" firstAttribute="centerX" secondItem="LaunchView" secondAttribute="centerX" id="CenterX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Responder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

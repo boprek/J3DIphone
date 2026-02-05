@@ -1,0 +1,142 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=2">
+	<style id="styleDash">
+			@page{
+				size: landscape;
+				size: portrait;
+			}
+	</style>
+	<text id="dashversion" style="display:none"></text>
+	<link rel="stylesheet" type="text/css" href="Apps/AdminUI/css/Admin_estilo.css">
+	<link rel="stylesheet" type="text/css" href="Apps/Reports/css/Reports_estilo.css">
+	<link rel="stylesheet" type="text/css" href="Apps/UIEditor/css/UIEditor_estilo.css">
+	<link rel="stylesheet" type="text/css" href="Apps/UIDisplay/css/UIDisplay_estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/Dashboard_estilo.css">
+	<script src='js/compress.js'></script>
+	<script src='js/util.js'></script>
+	<script src='Apps/Reports/js/graphs.js'></script>	
+	<script src='Apps/Reports/js/Reports.js'></script>
+	<script type="module" src='js/Dashboard.js'></script>
+	
+	
+	<body style="overflow-x: hidden;">
+		<div id="DashBar">
+			<img class="fixed" src="images/Mainbar.png" style="top: 0; left:0; z-index: 15;"></img>
+			<div id="AppOptions" style="position:fixed;top: 3px;left:285px;z-index:20">	
+				<img id="pAdminUI"  src="images/AdminUIH.png" onmouseover="" onmouseout="" onclick="changeApp(this);" style="position:relative;z-index:17;"></img>
+				<img id="pReports"  src="images/Reports.png" onmouseover="this.src='images/ReportsH.png';" onmouseout="this.src='images/Reports.png';" onclick="changeApp(this);" style="position:relative;margin-left: -37px;z-index:16;"></img>
+				<img id="pUIEditor" src="images/UIEditor.png" onmouseover="this.src='images/UIEditorH.png';" onmouseout="this.src='images/UIEditor.png';" onclick="changeApp(this);" style="position:relative;margin-left: -37px;z-index:15;display:none"></img>
+				<img id="pUIDisplay" src="images/UIDisplay.png" onmouseover="this.src='images/UiDisplayH.png';" onmouseout="this.src='images/UIDisplay.png';" onclick="changeApp(this); openFullscreen(); showUI();" style="position:relative;margin-left: -37px;z-index:14;display:none"></img>
+				<!--<img id="bBoxCFGdefects" style="z-index:17;position:absolute; top:9px; left: 970px; margin-left:20px; height:35px;" onclick="AdminUI.ShowBoxCFG()" src="images/PlusButton.png" onmouseout="this.src='images/PlusButton.png'" onmouseover="this.src='images/PlusButtonH.png'"></img>
+			-->
+			</div>
+			<div id="BoxCFG" style="z-index:8;position:absolute;top:65px;left:1010px;visibility: hidden;">
+				<div id="BoxCFGdefects">
+					<input type="radio" name="mt" id="dscreens" onclick="AdminUI.ChangeModeSizeDefects(this.id)" checked="true"><label id="lscreens"></label><br>
+					<input type="radio" name="mt" id="drawdiscarded" onclick="AdminUI.ChangeModeSizeDefects(this.id)"><label id="ldrawdiscarded"></label><br>
+					<input type="radio" name="mt" id="drawndiscarded" onclick="AdminUI.ChangeModeSizeDefects(this.id)"><label id="ldrawndiscarded"></label><br>
+					<input type="radio" name="mt" id="dactualfilter" onclick="AdminUI.ChangeModeSizeDefects(this.id)"><label id="ldactualfilter"></label><br>
+				</div>
+				<img id="boton_ChangeModo" style="position:relative;display:inline-flex; margin-left:20px; height:35px;" onclick="AdminUI.ChangePlace()"></img>
+				<select  type="text" id="BChangeRepLine" style = "position:relative;display:inline-flex; margin-left:20px; height:35px;width: 50px;top:-13px" onchange="AdminUI.ChangeRepLine()"></select>
+			</div>
+			<img id="AutoPrintBoton" style="z-index:17;position:absolute;left:1370px;margin-left:20px;top:12px; height:35px;" onclick="AdminUI.ActAutoPrint()" src="images/AutoPrintOFF.png" onmouseout="this.src='images/AutoPrintOFF.png'" onmouseover="this.src='images/AutoPrintOFFH.png'"></img>	
+			
+			<div id="EAStatus" style="position:absolute;z-index:17;top:12px;">
+				<img class="fixed" id="StatusPLC" style="left:1775px"/>
+				<img class="fixed" id="StatusLED" style="left:1675px"/>
+				<img class="fixed" id="StatusSYS" style="left:1575px"/>
+				<img class="fixed" id="boton_ChangeDefects" style="left:1475px" onclick="AdminUI.ChangeDefects()"/>
+			</div>
+			<img class="fixed" id="boton_salir" style="top:6px; left:1869px;z-index:17" onclick="AdminUI.Exit()"></img>
+			<div id="userDropdown">
+				<p>Usuario: <span id="dropdownUsername"></span></p>
+				<p>Rol: <span id="userRole"></span></p>
+				<button onclick="logout()">Cerrar sesión</button>
+			</div>
+		</div>
+		<div id="cartel_save" style="visibility:hidden"></div>
+		<div id="loginForm" style="display: none;">
+			<h2>Iniciar Sesión</h2>
+			<form onsubmit="return handleLogin(event);">
+				<label for="username">Nombre de Usuario:</label>
+				<input type="text" id="username" name="username" required>
+				<label for="password">Contraseña:</label>
+				<div style="position: relative;">
+					<input type="password" id="password" name="password" required>
+					<img id="togglePassword" src="images/Ojo.png" alt="Mostrar/Ocultar Contraseña" style="position: absolute; right: 10px; top: 20px; width:10%; opacity:0.8;transform: translateY(-50%); cursor: pointer; display: none;">
+				</div>
+				<button type="submit">Acceder</button>
+			</form>
+		</div>		
+		<img id="addUser" src="C:/J3D/Dashboard/images/PlusButton.png" style = "position: absolute; top:74px; left:93px; display: none;" onmouseover="this.src='images/PlusButtonH.png'" onclick="hideTable()" onmouseout="this.src='images/PlusButton.png'">
+		<img id="refreshTable" src="C:/J3D/Dashboard/images/Refresh.png" style = "position:absolute;top:73px; left:165px; display:none; width:36px; height: 36px;" onmouseover="this.src='images/RefreshH.png'" onmouseout="this.src='images/Refresh.png'" onclick="refreshTable()">
+		<!--<img id="search" src="C:/J3D/Dashboard/images/Search.png" style = "position:absolute; top:73px; left:236px; display:none; width:36px;height:36px;" onmouseover="this.src='images/SearchH.png'" onmouseout="this.src='images/Search.png'" onclick="searchUser();">
+	-->
+		<div id="addUserForm" style="display:none">
+			<h2>Crear Usuario</h2>
+			<form id="userForm" onsubmit="return addUser(event)">
+				<label for="usernameAdd">Nombre de Usuario:</label>
+				<input type="text" id="usernameAdd" name="usernameAdd" required>
+				<label for="passwordAdd">Contraseña:</label>
+				<input type="text" id="passwordAdd" name="passwordAdd" required>
+				<label for="rolAdd">Rol:</label>
+				<select id="rolAdd" name="rolAdd" required>
+					<option value="0">Operario</option>
+					<option value="1">Administrador</option>
+				</select>
+				<button type="submit" class="addSubmit">Registrar</button>
+				<button type="reset" class="resetSubmit" onclick="showTable();">Cancelar</button>
+			</form>
+		</div>
+		<div id="table-container" class="table-container" style="display:none">
+			<table id="userTable">
+				<thead>
+					<tr>
+						<th>Usuario</th>
+						<th>Contraseña</th>
+						<th>Rol</th>
+						<th>Último Login</th>
+						<th></th>
+						<th></th>
+						<th>Editar</th>
+						<th>Borrar</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>		
+		<div id="Apps">
+			<div id="AdminUI" style="display:block"></div>
+			<div id="Reports" style="display:none"></div>
+			<div id="UIEditor" style="display:none;"></div>
+			<div id="UIDisplay" style="display:none">
+				<iframe id="ui1" style="visibility: hidden;"></iframe>
+				<iframe id="ui2" style="visibility: hidden;"></iframe>
+				<iframe id="ui3" style="visibility: hidden;"></iframe>
+				<iframe id="ui4" style="visibility: hidden;"></iframe>
+				<iframe id="ui5" style="visibility: hidden;"></iframe>
+				<iframe id="ui6" style="visibility: hidden;"></iframe>
+				<iframe id="ui7" style="visibility: hidden;"></iframe>
+				<iframe id="ui8" style="visibility: hidden;"></iframe>
+				<iframe id="ui9" style="visibility: hidden;"></iframe>
+				<iframe id="ui10" style="visibility: hidden;"></iframe>
+				<iframe id="ui11" style="visibility: hidden;"></iframe>
+				<iframe id="ui12" style="visibility: hidden;"></iframe>
+			</div>
+		</div>
+		
+		<div id="DshKeyboard" class="keyboard keyboard--hidden"></div>
+
+		<script>
+			
+			function openFullscreen() {
+				if (document.documentElement.requestFullscreen) {
+					document.documentElement.requestFullscreen();
+				}
+			}
+		</script>
+	</body>
+</html>

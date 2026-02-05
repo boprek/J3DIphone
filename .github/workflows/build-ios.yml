@@ -1,0 +1,56 @@
+name: Build iOS Dashboard
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  ios:
+    name: Build unsigned .ipa
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 15.4
+        run: |
+          if [ -d "/Applications/Xcode_15.4.app" ]; then
+            sudo xcode-select -s /Applications/Xcode_15.4.app
+          else
+            sudo xcode-select -s /Applications/Xcode.app
+          fi
+
+      - name: Build DashboardApp
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project ios/DashboardApp/DashboardApp.xcodeproj \
+            -scheme DashboardApp \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            clean build
+
+      - name: Package unsigned IPA
+        run: |
+          set -euo pipefail
+          APP_PATH="DerivedData/Build/Products/Release-iphoneos/DashboardApp.app"
+          PAYLOAD_ROOT="DerivedData/Payload"
+          rm -rf "$PAYLOAD_ROOT"
+          mkdir -p "$PAYLOAD_ROOT"
+          cp -R "$APP_PATH" "$PAYLOAD_ROOT"
+          pushd DerivedData >/dev/null
+          zip -r DashboardApp-unsigned.ipa Payload
+          popd >/dev/null
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DashboardApp-unsigned-ipa
+          path: DerivedData/DashboardApp-unsigned.ipa

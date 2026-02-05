@@ -1,0 +1,60 @@
+<div class="Seccion" style="position:relative;">
+	<div class="InfoInspeccionRes" style="position:absolute;top:271px;left:6px;">
+		<text class="DatoResultadosBold" id = "UltRelai" style="position:absolute;top:10px;left:121px">Skid %%relai%%</text>
+		<text class="DatoResultadosBold" id = "UltVis" style="position:absolute;top:10px;left:6px">%%vis%%</text>
+		<text class="DatoResultadosBold" id = "UltModelo" style="position:absolute;top:10px;left:-46px;text-align: right;">%%type%%.%%long%%</text>
+		<text id = "UltColor1" class="DatoResultados" style="position:absolute;top:41px;left:27px">(%%codigo_color1%%) %%color1%%</text>
+		<div  id="UltColorWeb1" class="ColorWebResultados" style="position:absolute;top:39px;left:5px;background-color:#%%color_web1%%"></div>
+		<text id = "UltColor2" class="DatoResultados" style="position:absolute;top:73px;left:27px;display:%%biton%%">(%%codigo_color2%%) %%color2%%</text>
+		<div  id="UltColorWeb2" class="ColorWebResultados" style="position:absolute;top:71px;left:5px;background-color:#%%color_web2%%;display:%%biton%%"></div>
+		<text class="DatoResultados" id = "UltPais"   style="position:absolute;top:41px;left: -48px;text-align: right;">Pays %%pais%%</text>
+		<text class="DatoResultadosBold" id = "UltFechaHora"  style="position:absolute;top:70px;left:-50px;text-align: right">%%fecha%%</text>
+	</div>
+	<div class="ImagenesBusqueda" style="position:absolute;top:7px;left:3px">
+		<scan id="zona1"  class="ZonaResultados" style="position:absolute;top:0px;left:3px;background-color:black;width:153.59px;height:86px;display:%%zona1_enable%%" onclick="AdminUI.abreZoom(1,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="153.6" height="86.4">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.08)">
+					%%svg1%%
+				</g>
+			</svg>
+		</scan>
+		<scan id="zona2"  class="ZonaResultados" style="position:absolute;top:0px;left:158px;background-color:black;width:153.59px;height:86px;display:%%zona2_enable%%" onclick="AdminUI.abreZoom(2,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="153.6" height="86.4">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.08)">
+					%%svg2%%
+				</g>
+			</svg>
+		</scan>
+		<scan id="zona3"  class="ZonaResultados" style="position:absolute;top:174px;left:3px;background-color:black;width:153.59px;height:86px;display:%%zona3_enable%%" onclick="AdminUI.abreZoom(3,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="153.6" height="86.4">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.08)">
+					%%svg3%%
+				</g>
+			</svg>
+		</scan>
+		<scan id="zona4"  class="ZonaResultados" style="position:absolute;top:87px;left:158px;background-color:black;width:153.59px;height:86px;display:%%zona4_enable%%" onclick="AdminUI.abreZoom(4,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="153.6" height="86.4">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.08)">
+					%%svg4%%
+				</g>
+			</svg>
+		</scan>
+		<scan id="zona5"  class="ZonaResultados" style="position:absolute;top:87px;left:3px;background-color:black;width:153.59px;height:86px;display:%%zona5_enable%%" onclick="AdminUI.abreZoom(5,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="153.6" height="86.4">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.08)">
+					%%svg5%%
+				</g>
+			</svg>
+		</scan>
+		<scan id="zona6"  class="ZonaResultados" style="position:absolute;top:174px;left:158px;background-color:black;width:153.59px;height:86px;display:%%zona6_enable%%" onclick="AdminUI.abreZoom(6,%%id_inspeccion%%,'%%calculated%%')">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="153.6" height="86.4">
+				<g transform="translate(0,0)  rotate(0,0,0) scale(0.08)">
+					%%svg6%%
+				</g>
+			</svg>
+		</scan>
+	</div>
+	<img id ="boton_imprimir" type="button" style="width: 39px;height: 42px;position:absolute; top:376px; left:140px; display:%%calculated%%" onclick="AdminUI.imprimir(%%id_inspeccion%%);"></img>
+	<img id ="boton_guardar" type="button" style="width: 39px;position:absolute; top:376px; left:180px; display:%%calculated%% " onclick="AdminUI.guardar(%%id_inspeccion%%);"></img>
+</div>
+	

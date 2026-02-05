@@ -1,0 +1,166 @@
+﻿<body>
+	<div id="UIEactive" style="z-index:20;position: absolute;top:5px;left:169px;height: 40px;width: 40px;background-color: transparent;"></div>
+	<div id="CshowError" ></div>
+	<div id="appuieditor" style="position: absolute;top:0px;left:0px;height: 1080px;width: 1920px;display:none">
+		<img id="bchangeeditor" style="z-index:15;position:absolute;top:10px;left:1200px;" onclick="UIEditor.ChangeEditor()" src="images/ScreenEditor.png" onmouseout="this.src='images/ScreenEditor.png'" onmouseover="this.src='images/ScreenEditorH.png'"></img>	
+		
+		<div id="uieditorversion" style="position: absolute;top:98vh;left:1865px;font-size: 12px;z-index: 1;"></div>
+		<div id="screeneditor" style="position:absolute;top:0px;left:0px;display:block">
+			<div id="screen">
+				<iframe id="tmplscreen" width="1920" height="1080" title="UI_4" frameborder="0" scrolling="no" style="position:absolute;left:0px;top:0px;transform: scale(0.5);transform-origin: 0 0;z-index: 3;"></iframe>
+			</div>
+			<div id="uidouble"></div>
+			<div id="uiheader" style="display:none"></div>
+			<div id="axes" style="position: absolute;top: 205px;left: 480px;z-index:1">
+				<div id="hlaxe" style="position: absolute;left: 239px;height: 540px;width: 2px;background-color: rgb(0, 255, 0, 0.3);"></div>
+				<div id="hmaxe" style="position: absolute;left: 479px;height: 540px;width: 2px;background-color: rgb(255, 0, 0, 0.3);"></div>
+				<div id="hraxe" style="position: absolute;left: 719px;height: 540px;width: 2px;background-color: rgb(0, 255, 0, 0.3);"></div>
+				<div id="vmaxe" style="position: absolute;top: 269px;height: 2px;width: 960px;background-color: rgb(0, 0, 255, 0.3);"></div>
+			</div>
+			<div style="position: absolute;top:55px">
+				<button id="bcopy" onclick ="UIEditor.copyUIconf()"></button><br>
+				<button id="bpaste" onclick="UIEditor.pasteUIconf()"></button><br>
+				<button id="brline" onclick="UIEditor.copyAllRLines()"></button><br>
+				<button id="bmodels" onclick="UIEditor.copyAllModels()"></button><br>
+				<button id="bactualize" onclick="UIEditor.ActUICFG()"></button><br>
+				<button id="bactivate" onclick="UIEditor.ActivarUICFG()"></button><br>
+			</div>
+			<div id="screenheader" style="display: none">
+				<div style="position:absolute;left:20px;">
+					<label><span id="wsheader" style ="position:absolute;top:20px"></span></label>
+					<label><span id="tsheader" style ="position:absolute;top:50px;"></span></label>
+				</div>
+				<div style="position:absolute;left:90px;">
+					<input type="text" id="hwidth" style ="position:absolute;top:20px;width:55px" value="60" onchange="UIEditor.onChangeHeader()"/>
+					<input type="checkbox" id="htop" style ="position:absolute;top:50px;" value="first_checkbox" onchange="UIEditor.onChangeHeader()" checked>
+				</div>
+			</div>
+			<div id="selections">
+				<div style="position:absolute;left:20px;">
+					<label><span id="muiselec" style ="position:absolute;top:20px;"></span></label>
+					<label><span id="ruiselec" style ="position:absolute;top:50px;"></span></label>
+					<label><span id="uuiselec" style ="position:absolute;top:80px;"></span></label>
+					<label><span id="uuitypeselec" style ="position:absolute;top:110px;"></span></label>
+				</div>
+				<div style="position:absolute;left:110px;">
+					<select type="text" id="p_models" style = "position:absolute;top:20px;width:90px" onchange="UIEditor.onChangeModel()"></select>
+					<select type="text" id="p_rlines" style = "position:absolute;top:50px;width:90px" onchange="UIEditor.onChangeRline()"></select>
+					<select type="text" id="p_uis"    style = "position:absolute;top:80px;width:90px" onchange="UIEditor.onChangeUI()"></select>
+					<select type="text" id="p_uitype" style = "position:absolute;top:110px;width:90px" onchange="UIEditor.onChangeUItype()">
+						<option id="uitypeS" value="0"></option>
+						<option id="uitypeD1" value="1"></option>
+						<option id="uitypeD2" value="2"></option>
+						<option id="uitypeR" value="3"></option>
+					</select>
+				</div>
+			</div>
+			<div id="divCreateNew" >
+				<label><span id="clcnew" style ="position:absolute;top:15px;left:20px"></span></label>
+				<select type="text" id="p_cfgs" style = "position:absolute;top:15px;left: 100px;width:95px;height: 25px;"  onchange="UIEditor.onChangeCFG()"></select>
+				<button onclick="UIEditor.deleteCFG()" id="dlcnew"  style="position:absolute;left: 200px;top:15px;width:80px;height:25px"></button><br>
+				<label><span id="nlcnew" style ="position:absolute;top:45px;left:20px"></span></label>
+				<input type="text" id="p_newnamecfg" style="position:absolute;top:45px;left: 100px;width: 95px;height: 25px;">
+				<button onclick="UIEditor.createNewCFG()" id="crlcnew" style="position:absolute;left: 200px;top:45px;width:80px;height:25px"></button><br>
+				<label><span id="nulcnew"  style ="position:absolute;top:75px;left:20px"></span></label>
+				<input type="text" id="p_nuis" style="position:absolute;top:75px;left: 100px;width: 95px;height: 25px;">
+				<button onclick="UIEditor.addNewLine()" id="alcnew" style="position:absolute;left: 200px;top:75px;width:80px;height:25px"></button><br>
+				<table id="l_newuis" style="position:absolute;top:110px;left: 45px;width:200px;background-color: #510e04;text-align: center">
+					<thead>
+						<tr style="background-color: #b66b45;color:#FFFFFF">
+							<th id="rtnew" colspan="2"></th>
+						</tr>
+						<tr style="background-color: #d87d4e;">
+							<td id="ltnew"></td>
+							<td id="ntnew"></td>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<button onclick="UIEditor.delNewLine()" id="delcnew" style="position:absolute;left: 190px;top:328px;width:95px;height:25px"></button><br>
+			</div>
+			<div id="zonevalues">
+				<div style="position:absolute;left:20px;">
+					<label><span id="zzoneval" style ="position:absolute;top:20px"></span></label>
+					<label><span id="tzoneval" style ="position:absolute;top:50px"></span></label>
+					<label><span id="lzoneval" style ="position:absolute;top:80px"></span></label>
+					<label><span id="szoneval" style ="position:absolute;top:110px;"></span></label>
+					<label><span id="azoneval" style ="position:absolute;top:140px;"></span></label>
+					<label><span id="izoneval" style ="position:absolute;top:170px;"></span></label>
+				</div>
+				<div style="position:absolute;left:115px;">
+					<div   id="p_zona" style ="position:absolute;top:20px;width:55px;"></div>
+					<input type="number" id="p_top" style ="position:absolute;top:50px;width:55px" onchange="UIEditor.onChangeValue()" step="5"/>
+					<input type="number" id="p_left" style ="position:absolute;top:80px;width:55px" onchange="UIEditor.onChangeValue()" step="5"/>
+					<input type="number" id="p_scale" style ="position:absolute;top:110px;width:55px" onchange="UIEditor.onChangeValue()" step="0.05" min="0.1" />
+					<input type="number" id="p_angle" style ="position:absolute;top:140px;width:55px" onchange="UIEditor.onChangeValue()" step="10"/>
+					<select type="text" id="p_imagen" style = "position:absolute;top:170px;width:55px" onchange="UIEditor.OnChangeImg()"></select>
+				</div>
+			</div>
+			<div id="fzonas" style="position: absolute;top: 900px;left: 0px;height: 180px;width: 1920px;background-color: rgb(224, 200, 120);"></div>
+			<div id="zonas" style="position: absolute;top: 0px;left: 0px;;z-index:2"">
+				<img id="szona1" style="position: absolute;transform-origin: 0% 0%;" />
+				<img id="szona2" style="position: absolute;transform-origin: 0% 0%;" />
+				<img id="szona3" style="position: absolute;transform-origin: 0% 0%;" />
+				<img id="szona4" style="position: absolute;transform-origin: 0% 0%;" />
+				<img id="szona5" style="position: absolute;transform-origin: 0% 0%;" />
+				<img id="szona6" style="position: absolute;transform-origin: 0% 0%;" />
+			</div>
+			<div id="rzonassvg" style="position: absolute;left: 960px;z-index: 2;display: block;width: 480px;height: 540px;top: 205px;"></div>
+		</div>		
+
+		<div id="symboleditor" style="position:absolute;top:0px;left:0px;display:none">
+			<div id="symbolscreen"></div>
+			<div id="sinfo">
+				<div style="position:absolute;left:20px;width: 150px;">
+					<label><span id="gsymsinfo" style ="position:absolute;top:20px"></span></label>
+					<label><span id="fsymsinfo" style ="position:absolute;top:50px"></span></label>
+					<label><span id="tsymsinfo" style ="position:absolute;top:80px"></span></label>
+				</div>
+				<div style="position:absolute;left:160px;">
+					<input type="number"  id="se_gscale"     style ="position:absolute;top:20px;width:55px;" onchange="UIEditor.onChangeSymbolValue()" step="0.1" min="0" >
+					<input type="number"  id="se_fontsize"   style ="position:absolute;top:50px;width:55px;" onchange="UIEditor.onChangeSymbolValue()" step="1" min="0" >
+					<input type="number" id="se_textmargin" style ="position:absolute;top:80px;width:55px" onchange="UIEditor.onChangeSymbolValue()"/  step="1" min="0" >
+				</div>
+			</div>
+			<div id="symbolvalues">
+				<div style="position:absolute;left:20px;width: 150px;">
+					<label><span id="tysymval" style ="position:absolute;top:20px"></span></label>
+					<label><span id="sysymval" style ="position:absolute;top:50px"></span></label>
+					<label><span id="scsymval" style ="position:absolute;top:80px"></span></label>
+					<label><span id="cosymval" style ="position:absolute;top:110px"></span></label>
+					<label><span id="wesymval" style ="position:absolute;top:140px;"></span></label>
+					<label><span id="sisymval" style ="position:absolute;top:170px;"></span></label>
+					<label><span id="bcsymval" style ="position:absolute;top:200px;"></span></label>
+					<label><span id="bwsymval" style ="position:absolute;top:230px;"></span></label>
+				</div>
+				<div style="position:absolute;left:160px;">
+					<select type="text"   id="se_types"       style ="position:absolute;top:20px;width:190px;" onchange="UIEditor.onChangeSymbolType()"></select>
+					<select type="text"   id="se_symbol"      style ="position:absolute;top:50px;width:190px;" onchange="UIEditor.onChangeSymbolValue()"></select>
+					<input  type="number" id="se_scale"       style ="position:absolute;top:80px;width:190px" onchange="UIEditor.onChangeSymbolValue()"/ step="0.1" min="0" >
+					<input  type="color"  id="se_color"       style ="position:absolute;top:110px;width:190px" onchange="UIEditor.onChangeSymbolValue()"/>
+					<input  type="color"  id="se_wcolor"      style ="position:absolute;top:140px;width:190px" onchange="UIEditor.onChangeSymbolValue()"/>
+					<input  type="color"  id="se_scolor"      style ="position:absolute;top:170px;width:190px" onchange="UIEditor.onChangeSymbolValue()"/>
+					<input  type="color"  id="se_bordercolor" style ="position:absolute;top:200px;width:190px" onchange="UIEditor.onChangeSymbolValue()"/>
+					<input  type="number" id="se_borderwidth" style ="position:absolute;top:230px;width:190px" onchange="UIEditor.onChangeSymbolValue()" step="0.1" min="0" />
+				</div>
+			</div>
+			<button id="bactsymbols" onclick = "UIEditor.ActSymbols()" ></button><br>
+		</div>
+		<div id="canvashidden" style="position: absolute;top:0px;left:0px;visibility: hidden;"></div>
+	</div>
+	
+	<div id="uisorganization" style="position:absolute;z-index: 5;top:0px;left:0px;display:block;height: 1080px;width: 1920px;background-color: #808080b0;">
+		<div id="SUfondoTitulo">		
+			<label><span id="SUclcnew" style="position:absolute;top:39px;left:66px;">CFG</span></label>
+			<div id="SUbotones" style="display:none">
+				<img id="SUNextButton" type="button" style="position:absolute;top:24px;left:1004px;" onclick="UIEditor.nextCfgLine()"></button>
+				<img id="SUPreviousButton" type="button" style="position:absolute;top:24px;left:720px;" onclick="UIEditor.previousCfgLine()"></button>
+			</div>			
+			<select type="text" id="SUcfgselec" style = "position:absolute;z-index:15;top:38px;width:125px;left:122px" onchange="UIEditor.SUonChangeCFG()"></select>
+			<div id="SUcartelLinea" ></div>
+			<button id="SUbactivate" onclick="UIEditor.ActivarUICFG()"></button><br>
+		</div>
+		<div id="SUpantallas" ></div>
+	</div>
+</body>

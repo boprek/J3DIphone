@@ -1,0 +1,149 @@
+/* #boton_ChangeDefects{display: none !important;} */
+
+/* GENERAL */
+@font-face{
+	 font-family: 'Montse_regular';
+	 font-style: normal;
+	 font-weight: 400;
+	 src: url('Montserrat-Medium.ttf');
+}
+
+*{
+    font-family: 'Montse_regular';
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+	src: url('Montserrat-Medium.ttf');
+	overflow:none;
+}
+
+body {
+	background-image: url('../images/Wallpaper.png');
+
+	margin: 0; 
+	padding: 0;	
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+div {
+	margin: 0;
+	padding: 0;
+}
+
+/* SCROLL*/
+::-webkit-scrollbar{
+    width: 12px;
+	height: 10px;
+} 
+::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background-color: #f18155;
+}
+
+#boton_salir{		
+	content: url(../images/LeaveButton.png);
+}
+#boton_salir:hover{
+	content: url(../images/LeaveButtonH.png);
+}
+
+
+/* KEYBOARD */
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url('keyboard-font.woff2') format('woff2');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+}
+
+.keyboard {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    background: #6f6f6f;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
+	z-index:999
+}
+
+.keyboard--hidden {
+    bottom: -100%;
+	display: none;
+}
+
+.keyboard__keys {
+    text-align: center;
+}
+
+.keyboard__key {
+    height: 45px;
+    width: 6%;
+    max-width: 90px;
+    margin: 3px;
+    border-radius: 4px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.05rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.keyboard__key:active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.keyboard__key--wide {
+    width: 12%;
+}
+
+.keyboard__key--extra-wide {
+    width: 36%;
+    max-width: 500px;
+}
+
+.keyboard__key--activatable::after {
+    content: '';
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+.keyboard__key--active::after {
+    background: #08ff00;
+}
+
+.keyboard__key--dark {
+    background: rgba(0, 0, 0, 0.25);
+}

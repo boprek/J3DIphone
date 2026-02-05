@@ -1,0 +1,52 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style id="styleDash">
+			@page{
+				size: landscape;
+				size: portrait;
+			}
+	</style>
+	<text id="dashversion" style="display:none"></text>
+	<link rel="stylesheet" type="text/css" href="Apps/AdminUI/css/Admin_estilo.css">
+	<link rel="stylesheet" type="text/css" href="Apps/Reports/css/Reports_estilo.css">
+	<link rel="stylesheet" type="text/css" href="Apps/UIEditor/css/UIEditor_estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/Dashboard_estilo.css">
+	<script src='js/compress.js'></script>
+	<script src='js/util.js'></script>
+	<script src='Apps/Reports/js/graphs.js'></script>	
+	<script src='Apps/Reports/js/Reports.js'></script>
+	<script type="module" src='js/Dashboard.js'></script>
+	<body style="overflow-x: hidden;">	
+		<div id="DashBar">
+			<img class="fixed" src="images/Mainbar.png" style="top: 0; left:0; z-index: 15;"></img>
+		<div id="AppOptions" style="position:fixed;top: 3px;left:285px;z-index:20">	
+			<img id="pAdminUI"  src="images/AdminUIH.png" onmouseover="" onmouseout="" onclick="changeApp(this);" style="position:relative;z-index:17"></img>
+			<img id="pReports"  src="images/Reports.png" onmouseover="this.src='images/ReportsH.png';" onmouseout="this.src='images/Reports.png';" onclick="changeApp(this);" style="position:relative;margin-left: -37px;z-index:16"></img>
+			<img id="pUIEditor" src="images/UIEditor.png" onmouseover="this.src='images/UIEditorH.png';" onmouseout="this.src='images/UIEditor.png';" onclick="changeApp(this);" style="position:relative;margin-left: -37px;z-index:15;display:none"></img>
+		</div>
+		<div id="BoxCFG" style="z-index:8;position:absolute;top:65px;left:1010px;visibility: hidden;">
+			<div id="BoxCFGdefects">
+				<input type="radio" name="mt" id="dscreens" onclick="AdminUI.ChangeModeSizeDefects(this.id)" checked="true"><label id="lscreens"></label><br>
+				<input type="radio" name="mt" id="drawdiscarded" onclick="AdminUI.ChangeModeSizeDefects(this.id)"><label id="ldrawdiscarded"></label><br>
+				<input type="radio" name="mt" id="drawndiscarded" onclick="AdminUI.ChangeModeSizeDefects(this.id)"><label id="ldrawndiscarded"></label><br>
+				<input type="radio" name="mt" id="dactualfilter" onclick="AdminUI.ChangeModeSizeDefects(this.id)"><label id="ldactualfilter"></label><br>
+			</div>
+			<img id="boton_ChangeModo" style="position:relative;display:inline-flex; margin-left:20px; height:35px;" onclick="AdminUI.ChangePlace()"></img>
+			<select  type="text" id="BChangeRepLine" style = "position:relative;display:inline-flex; margin-left:20px; height:35px;width: 50px;top:-13px" onchange="AdminUI.ChangeRepLine()"></select>
+		</div>
+		<div id="EAStatus" style="position:absolute;z-index:17;top:12px;">
+				<img class="fixed" id="StatusPLC" style="left:1775px"/>
+				<img class="fixed" id="StatusLED" style="left:1675px"/>
+				<img class="fixed" id="StatusSYS" style="left:1575px"/>
+				<img class="fixed" id="boton_ChangeDefects" style="left:1475px" onclick="AdminUI.ChangeDefects()"/>
+			</div>
+			<img class="fixed" id="boton_salir" style="top:6px; left:1869px;z-index:17" onclick="AdminUI.Exit()"></img>
+		</div>
+		<div id="Apps">
+			<div id="AdminUI"  style="display:block"></div>
+			<div id="Reports" style="display:none"></div>
+			<div id="UIEditor" style="display: none;"></div>
+		</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+	<link rel="stylesheet" type="text/css" href="css/Ren.Admin_estilo.css">
+	<script src='js/compress.js'></script>
+	<script src='js/util.js'></script>
+	<script src='js/AdminUI.js'></script>
+	<img src="images/Mainbar.png" style="position:absolute; top: 0; left:0; z-index: 5;"></img>
+	<img class="fixed" id="boton_salir" style="position:absolute;z-index:5;top:6px; left:1869px;z-index:6" onclick="Exit()"></img>
+	<div id="AdminUI"></div>
+	<script>
+			var ip_server = "localhost:8192";
+			var AdminUI = CreateAdminUI(ip_server); 
+	</script>
+</html>

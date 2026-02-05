@@ -1,0 +1,170 @@
+<body style="font-family:Montse_regular;font-size:14px;">
+	<div id="master" style="display:block" style="max-height:209.85mm; max-width:297mm; overflow:hidden">
+		<div class="fixed" ><text id="reportsversion" style="position:absolute;top:98vh;left:1865px;font-size: 12px;color: black;"></text></div>
+		<div id="ReportsBar">
+			<img class="fixed" id="imgHome" style="top:6; left:7; z-index:2;z-index: 17" onclick="Reports.desplegar()"></img>				
+			<div  class="fixed" style="position:fixed;top:-1px;left: 1721px; width: 200px;text-align: right;z-index:18">
+				<img class="fixed" id="RepimgPrint" style="position:fixed;top:7px;left:1400px;visibility: hidden;" onclick="Reports.BeforePrint();"></img>		
+			</div>
+		</div>
+		<div class="fixed" id="divPlotly" style="background-color:transparent; width:1920; height:1020px; top: 60; left:0; z-index:0; display:none">
+			<div id="divPlotly1" style="background-color:transparent; width:955; height:1020; float:left"></div>			
+			<div id="divPlotly2" style="background-color:transparent; margin-left:10; width:955; height:1020; float:right"></div>	
+		</div>
+		<div class="fixed params" id="paramsID">
+			<img id="RepTypeHeader" class="rel" style="top:20; left:20"></img>
+			<div class="rel" style="top:60; left:36; display: flex;">
+				<div>
+					<input type="radio" id="rtOneCar" name="rt" value="rtOneCar" onchange="Reports.OnChangeReportType(this);" checked><label id="rtOneCarl" for="rtOneCar"></label><br>
+					<input type="radio" id="rtHeatMap" name="rt" value="rtHeatMap" onchange="Reports.OnChangeReportType(this);"><label id="rtHeatMapl" for="rtHeatMap"></label><br>
+					<input type="radio" id="rtStats" name="rt" value="rtStats" onchange="Reports.OnChangeReportType(this);"><label id="rtStatsl" for="rtStats"></label><br><br>
+					<input type="radio" id="rtMean" name="rt" value="rtMean" Onchange="Reports.OnChangeReportType(this);"><label id="rtMeanl" for="rtMean"></label>
+				</div>
+				<div style="margin-left: 25px">
+					<input type="radio" id="rtBar" name="rt" value="rtBar"  onchange="Reports.OnChangeReportType(this);"><label id="rtBarl" for="rtBar"></label></br>
+					<input type="radio" id="rtPie" name="rt" value="rtPie" onchange="Reports.OnChangeReportType(this);"><label id="rtPiel" for="rtPie"></label><br>
+					<input type="radio" id="rtBarII" name="rt" value="rtBarII" onchange="Reports.OnChangeReportType(this);"><label id="rtBarIIl" for="rtBarII"></label><br><br>	
+					<scan id="divRange" style="display:none">
+						<input type="checkbox" id="CustomRange" style="display:inline" onchange="Reports.OnChangeRange(this)" unchecked><label id="Rangel"></label>
+						<input id="Rangeini" style="margin-top:0; margin-bottom:10; width: 25px;display:none" /> 
+						<input id="Rangefin" style="margin-top:0; margin-bottom:10; width: 25px;display:none" /> 
+					</scan>	
+				</div>
+			</div>
+			<div class="rel" style="top:160; left:10; width:550; margin:10">
+				<img id="RepSelectionOptions"></img></br>
+					<input type="radio" id="selVins" name="sel" value="selVins" style="margin-left:25" checked="checked" onchange="Reports.OnChangeMultiCriterio()"><label id="selVinsl" for="selVins"></label></br>
+					<input type="radio" id="selDFV" name="sel" value="selDFV" style="margin-left:25" onchange="Reports.OnChangeMultiCriterio()"><label id="selDFVl" for="selDFV"></label></br>
+					<input type="radio" id="selSkid" name="sel" value="selSkid" style="margin-left:25" onchange="Reports.OnChangeMultiCriterio()"><label id="selSkidl" for="selSkid"></label></br>
+					<input type="radio" id="selMulti" name="sel" value="selMulti" style="margin-left:25" onchange="Reports.OnChangeMultiCriterio()"><label id="selMultil" for="selMulti"></label></br>
+					<group id="selValue" style="display:inline"><label for="carValue" style="padding-left: 200;" onchange="Reports.OnChangeMultiCriterio()" id="selValuel"></label><input type="text" id="carValue" name="carValue"></group></br>
+					
+					<div id="divLigne" style="display:block; visibility:visible;margin-bottom:20px;width:600px">
+						<div id="dlinA" style="display:none;"><input type="checkbox" id="linA" name="lin" style="margin-left:20; margin-top:15"><label id="linAl" for="linA"></label></div>
+						<div id="dlinB" style="display:none;"><input type="checkbox" id="linB" name="lin" style="margin-left:20;" ><label id="linBl" for="linB"></label></div>
+						<div id="dlinC" style="display:none;"><input type="checkbox" id="linC" name="lin" style="margin-left:20;" ><label id="linCl" for="linC"></label></div>
+						<div id="dlinD" style="display:none;"><input type="checkbox" id="linD" name="lin" style="margin-left:20;" ><label id="linDl" for="linD"></label></div></br>						
+					</div>		
+					<div id="divDateOneCar" style="display:none">
+						<span style="display:inline-block"><p id="datel" style="margin-bottom:5"></p></span>
+						<input type="datetime-local" id="dateOneCar" step="1" style="margin-top:0; margin-bottom:10; margin-left:10"> 
+					</div>
+					<div id="divMultiCriterio" style="display:none">	
+						<div id="divDateIni" style="width:50%; float:left; margin-top:-8">
+							<p id="Initdatel" style="margin-bottom:8; float:left;margin-right: 50px"></p>
+							<input type="datetime-local" id="dateIni" style="margin-top:0; margin-bottom:10; float:left;"> 
+						</div>
+						<div id="divDateFin" style="width:50%; margin-top:-8; float:right">
+							<p id="Findatel" style="margin-bottom:8; float:right;margin-left: 40px"></p>
+							<input type="datetime-local" id="dateFin" style="margin-top:0; margin-bottom:10; float:right;" onchange="Reports.OnChangeDate(this);"> 
+						</div>
+						<div id="selecBiton">
+							<input type="checkbox" id="MonoTon" name="monoton" style="margin-left:0; margin-top:10; margin-bottom:20" checked><label id="MonoTonl"></label>
+							<input type="checkbox" id="BiTon" name="biton" style="margin-left:20; margin-top:10; margin-bottom:20" checked><label id="BiTonl"></label>
+							<scan id="divBitonExt"><input type="checkbox" id="BiTonExt" name="bitonExt" style="margin-left:24; margin-top:10; margin-bottom:20;" checked><label id="BiTonExtl"></label></br></scan>		
+						</div>
+						<div id="BoxColors">
+							<img  id="RepHeaderColors"></img></br>
+							<div id="divColors" style="top:20px;width:230px; float:left;max-height: 430px; overflow-y: auto; margin-right: 60px; margin-bottom: 20px">
+								<input type="checkbox" id="col0" onchange="Reports.OnChangeCheckboxColorsAll(this);" style="margin-left:10" checked><label id="allColorsl1" for="col0"></label></br>
+							</div>
+						</div>
+						<div id="BoxColors2" style="margin-top: -41px">
+							<img id="RepHeaderColors2"></img></br>
+							<div id="divColors2" style="width:260; float:right; margin-bottom:50px; max-height: 200px; overflow: auto;">
+								<input type="checkbox" id="2col0" onchange="Reports.OnChangeCheckboxColorsAll2(this);" style="margin-left:10" checked><label id="allColorsl2" for="col0"></label></br>
+							</div>
+						</div>
+						<div id="divModels" style="width:260; float:right;margin-top: -41px">
+							<img id="RepHeaderModels"></img></br>
+						</div>		
+					</div>
+				</br></br>
+				<div id="divDefects" style="margin-top: 20px">
+					<img id="RepDefectTypeHeader"></img></br>
+					<input type="checkbox" id="defTodos" style="margin-left: 10.6" onclick="Reports.selectAllSubcat(this)" checked><label id="defTodosl" for="defTodos"></label>
+					<br>
+					<input type="checkbox" id="defDirt" name="def" style="margin-left:10.6" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defDirtl" for="defDirt"></label>
+					<input type="checkbox" id="defCrater" name="def" style="margin-left:67" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defCraterl" for="defCrater"></label>
+					<input type="checkbox" id="defDescolgon" name="def" style="margin-left:97" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defDescolgonl" for="defDescolgon"></label>
+					<br>
+					<input type="checkbox" id="defGota" name="def" style="margin-left:10.6" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defGotal" for="defGota"></label>
+					<input type="checkbox" id="defFibra" name="def" style="margin-left:99" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defFibral" for="defFibra"></label>
+					<input type="checkbox" id="defHervido" name="def" style="margin-left:105" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defHervidol" for="defHervido"></label>
+					<br>
+					<input type="checkbox" id="defRoce" name="def" style="margin-left:10.6" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defRocel" for="defRoce"></label>
+					<input type="checkbox" id="defEspolvoreado" name="def" style="margin-left:97" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defEspolvoreadol" for="defEspolvoreado"></label>					
+					<input type="checkbox" id="defFaltaColor" name="def" style="margin-left:46" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defFaltaColorl" for="defFaltaColor"></label>
+					<br>
+					<input type="checkbox" id="defPielNaranja" name="def" style="margin-left:10.6" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defPielNaranjal" for="defPielNaranja"></label>
+					<input type="checkbox" id="defLineaCorteBitono" name="def" style="margin-left:25" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defLineaCorteBitonol" for="defLineaCorteBitono"></label>
+					<input type="checkbox" id="defDesconchado" name="def" style="margin-left:10" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defDesconchadol" for="defDesconchado"></label>
+					<br>
+					<input type="checkbox" id="defPinholes" name="def" style="margin-left:10.6" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defPinholesl" for="defPinholes"></label>
+					<input type="checkbox" id="defCoquera" name="def" style="margin-left:72" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defCoqueral" for="defCoquera"></label>
+					<input type="checkbox" id="defRayas" name="def" style="margin-left:81" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defRayasl" for="defRayas"></label>
+					<br>
+					<input type="checkbox" id="defBollo" name="def" style="margin-left:10.6" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defBollol" for="defBollo"></label>
+					<input type="checkbox" id="defOtrosChapa" name="def" style="margin-left:97" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defOtrosChapal" for="defOtrosChapa"></label>
+					<input type="checkbox" id="defOtrosPintura" name="def" style="margin-left:52" onchange="Reports.OnChangeTypeDefect(this)" checked><label id="defOtrosPintural" for="defOtrosPintura"></label>
+				</div>
+				<div id="divButtons" style="display:inline;">
+					<img id="Rsalir" onclick="Reports.Exit()"; ></img>
+					<img id="Rgenerar" onclick="Reports.OnGenerateReport()"; ></img>
+				</div>
+			</div>
+		</div>			
+		
+		<div class="rel" id="divHeatMap" style="background-color: white; max-height:209mm; height: 900; width: 3800; z-index:0; display:none">
+			<div id="divHeatMap0"><div id="imgHeatMap0" style="width:800px;height:900px"></div><p id="textHeatMap0" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>
+			<div id="divHeatMap1"><div id="imgHeatMap1" style="width:800px;height:900px"></div><p id="textHeatMap1" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>
+			<div id="divHeatMap2"><div id="imgHeatMap2" style="width:800px;height:900px"></div><p id="textHeatMap2" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>
+			<div id="divHeatMap3"><div id="imgHeatMap3" style="width:800px;height:900px"></div><p id="textHeatMap3" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>
+			<div id="divHeatMap4"><div id="imgHeatMap4" style="width:800px;height:900px"></div><p id="textHeatMap4" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>		
+			<div id="divHeatMap5"><div id="imgHeatMap5" style="width:800px;height:900px" ></div><p id="textHeatMap5" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>
+			<div id="divHeatMap6"><div id="imgHeatMap6" style="width:800px;height:900px" ></div><p id="textHeatMap6" style="text-align:center; float:bottom;margin-top:10px">Esto es una prueba de HeatMap</p></div>			
+		</div>
+		<div class="fixed" id="desplegarID" onclick="Reports.desplegar()" style="top:60; left:0; width:45; height:45; background-color:transparent;z-index:2"></div>
+		<img class="fixed" id="RepimgLoading" style="top:525; left:560; display:none"></img>
+	</div>
+		<div id="printDiv" style="background-color:transparent;position:absolute; top: 0px; left: 0px; width:297mm; height:209.85mm; display:none; visibility:hidden; color: #474546; overflow:hidden">
+			<img class="fixed" id="RepFondoPrint" style="background-color:transparent;top:0; left:0; width:297mm; height:209.85mm"></img>		
+			<div id="printPlots" style="background-color:transparent;position:absolute; top:0; left:0; width:297mm; height:187mm; padding-top:22mm; display:flex;">	
+				<img id="printDivMean" style="width:1100; height:600;display:none" />
+				<div id="printDivPlotly1" style="background-color:transparent; width:220mm; height:166mm; float:left;"></div>			
+				<div id="printDivPlotly2" style="background-color:transparent; width:97mm; height:166mm; margin-left:-20mm; float:right;"></div>
+			</div>
+			<div id="printHeatMaps" style="background-color:transparent;position:absolute; top:-190px; left:-190px; width:297mm; height:209mm; display:none; flex-wrap: wrap;">			
+				<div id="printHeatMap0" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent;">
+					<div id="printImgHeatMap0" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap0" style="position:absolute;top:750px; left:240px; width: 450px; font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap0</p>
+				</div>				
+				<div id="printHeatMap1" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent">
+					<div id="printImgHeatMap1" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap1" style="position:absolute;top:750px; left:240px; width: 450px;font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap1</p>
+				</div>			
+				<div id="printHeatMap2" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent">
+					<div id="printImgHeatMap2" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap2" style="position:absolute;top:750px; left:240px; width: 450px;font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap2</p>
+				</div>
+				<div id="printHeatMap3" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent">
+					<div id="printImgHeatMap3" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap3" style="position:absolute;top:750px; left:240px; width: 450px;font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap3</p>
+				</div>
+				<div id="printHeatMap4" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent">
+					<div id="printImgHeatMap4" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap4" style="position:absolute;top:750px; left:240px; width: 450px;font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap4</p>
+				</div>			
+				<div id="printHeatMap5" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent">
+					<div id="printImgHeatMap5" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap5" style="position:absolute;top:750px; left:240px; width: 450px;font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap5</p>
+				</div>		
+				<div id="printHeatMap6" style="position:relative; width:50%; height:165.88mm; margin-top:22mm; margin-bottom:22mm; background-color: transparent">
+					<div id="printImgHeatMap6" style="background-color:transparent;margin-left:20mm;margin-top:6mm; max-width:auto; height:92%;"></div>
+					<p id="printTextHeatMap6" style="position:absolute;top:750px; left:240px; width: 450px;font-size:10; bottom:6mm; text-align:center;">Esto es una prueba de HeatMap5</p>
+				</div>	
+			</div>
+			<label id="NombrePlanta" style="position: fixed; top: 193.25mm; left: 25mm"></label>	
+			<label id="printDate" style="position: fixed; top: 193.25mm; left: 231mm"></label>				
+		</div>
+</body>

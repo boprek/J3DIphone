@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SISTEMA AUTOMÁTICO DE DETECCIÓN DE DEFECTOS DE PINTURA</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="C:/J3D/UI/css/estilo.css">
+	</head>
+	<body style="margin:0; padding:0; border:0; background-color:white; position:absolute; top:0; left:0; transform: scale(1.0)">
+		<div id="cuerpo" style="opacity: 1;">
+			<div id="inspecciones">
+				<div class="inspeccion redondo sombra in0_0" style="opacity: 1;">
+					<div class="info big">
+						<div id="IdInsp" style="display:none">%%id_inspeccion_0%%</div>
+						<div class="pedido">PJI <br>%%vis_0%%</div>
+						<div class="vis"></div>
+						<div class="vuelta"></div>
+						<div class="color">(%%codigo_color1_0%%) %%color1_0%%
+							<div class="demo_color" style="background-color: #%%color_web1_0%%;"></div>
+						</div>
+						<div class="modelo">Modelo %%modelo_0%%</div>
+						<div class="pais">Pais <br>%%pais_0%%&nbsp </div>
+					</div>
+				</div>
+			</div>
+			<div id="errores" class="grande">
+				<div class="mensajes" style="display: none;"></div>
+			</div>
+		</div>
+		<div style="position:absolute;top:0;display=flex; max-width:960px">
+%%svg_0%%
+		</div>
+		<style>
+		#infoDefect{
+			position: absolute;
+			visibility: hidden;
+			background-color: #d89a7ceb;
+			align-items: center;
+			border: 3px solid #494949;
+			z-index: 9;
+			font-size: 18px;
+			box-shadow: rgb(0 0 0) 0px 0px 20px, rgb(255 255 255) 0px 0px 6px;
+			display: flex;
+			padding: 10px;
+			flex-direction: column;
+			gap: 10px;
+			align-content: center;
+			z-index:9999999;
+		}
+		.Boton_resultados{
+			text-align: center;
+			background-color: white;
+			color: black;
+			font-size: 14px;
+			width: 130px;
+			height: 50px;
+			border-radius: 18px 18px 18px 18px;
+		}
+		
+		.BotonSubCat{
+			text-align: center;
+			background-color: gainsboro;
+			color: black;
+			font-size: 14px;
+			width: 140px;
+			height: 60px;
+			border-radius: 18px 18px 18px 18px;
+			font-size: 15px;
+			padding: 5px;
+		}
+		
+		.BotonReparado{
+			text-align: center;
+			background-color: gainsboro;
+			color: black;
+			font-size: 14px;
+			width: 250px;
+			height: 75px;
+			border-radius: 18px 18px 18px 18px;
+			font-size: 15px;
+			padding: 5px;
+		}
+
+		.tinfo{
+			width: 440px;
+			background-color: #510e04;
+			text-align: center;
+			height: 30px;
+			table-layout: fixed;
+		}
+	</style>
+	<div id="infoDefect" style="top: 384px; left: 498px; visibility: hidden; border-radius: 0px 25px 25px; background-color: rgba(141, 218, 155, 0.92);">
+		<div style="display: flex;	gap: 5px;flex-direction: column;">
+			<div style="display: flex;	justify-content: space-between;">
+				<table id="l_newuis" class="tinfo">
+					<tbody>
+						<tr style="">
+							<td style="color:#000000;background-color: #c1c1c1;">Peso</td>
+							<td id="dweight" style="color:#000000;background-color: #ffffff;">--</td>
+							<td style="color:#000000;background-color: #c1c1c1;">Tamaño</td>
+							<td id="dsize" style="color:#000000;background-color: #ffffff;">--</td>
+						</tr>
+					</tbody>
+				</table>
+				<table id="l_newuis" class="tinfo">
+					<tbody>
+						<tr style="">
+							<td style="color:#000000;background-color: #c1c1c1;">X</td>
+							<td id="dx" style="color:#000000;background-color: #ffffff;">1000</td>
+							<td style="color:#000000;background-color: #c1c1c1;">Y</td>
+							<td id="dy" style="color:#000000;background-color: #ffffff;">580</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="display: flex;justify-content: space-between;max-width: 900px;gap: 2px;flex-direction: row;">
+				<div type="text" id="dsubcats" style="color: black;font-size: 12px;display: flex;flex-wrap: wrap;flex: 200px;justify-content: space-evenly;gap: 5px;" onchange="changeSubcat(this)"> 
+					<button class="BotonSubCat" id="subcat0" value="0"  onclick="onChangeSubcat(this)">SIN SUBCATEGORIA</button>
+					<button class="BotonSubCat" id="subcat1" value="1"  onclick="onChangeSubcat(this)">SUCIEDAD</button>
+					<button class="BotonSubCat" id="subcat2" value="2"  onclick="onChangeSubcat(this)">CRATER</button>
+					<button class="BotonSubCat" id="subcat3" value="3"  onclick="onChangeSubcat(this)">VERRUGA</button>
+					<button class="BotonSubCat" id="subcat4" value="4"  onclick="onChangeSubcat(this)">RESTO SELLADO</button>
+					<button class="BotonSubCat" id="subcat5" value="5"  onclick="onChangeSubcat(this)">DESCOLGADO</button>
+					<button class="BotonSubCat" id="subcat6" value="6"  onclick="onChangeSubcat(this)">GOTA</button>
+					<button class="BotonSubCat" id="subcat7" value="7"  onclick="onChangeSubcat(this)">FIBRA</button>
+					<button class="BotonSubCat" id="subcat8" value="8"  onclick="onChangeSubcat(this)">HERVIDOS</button>
+					<button class="BotonSubCat" id="subcat9" value="9"  onclick="onChangeSubcat(this)">HUELLA LIJA</button>
+					<button class="BotonSubCat" id="subcat10" value="10" onclick="onChangeSubcat(this)">HUELLA PULIDO TRAPO</button>
+					<button class="BotonSubCat" id="subcat11" value="11" onclick="onChangeSubcat(this)">MARCA AGUA</button>
+					<button class="BotonSubCat" id="subcat12" value="12" onclick="onChangeSubcat(this)">ACEITE</button>
+					<button class="BotonSubCat" id="subcat13" value="13" onclick="onChangeSubcat(this)">GOTA DISOLVENTE</button>
+					<button class="BotonSubCat" id="subcat14" value="14" onclick="onChangeSubcat(this)">ARANAZO RAYAS</button>
+					<button class="BotonSubCat" id="subcat15" value="15" onclick="onChangeSubcat(this)">MANCHAS</button>
+					<button class="BotonSubCat" id="subcat16" value="16" onclick="onChangeSubcat(this)">ABOLLADURA</button>
+					<button class="BotonSubCat" id="subcat17" value="17" onclick="onChangeSubcat(this)">PROYECCION SOLDADURA</button>
+					<button class="BotonSubCat" id="subcat18" value="18" onclick="onChangeSubcat(this)">PROYECCION ANTIGRAVA</button>
+					<button class="BotonSubCat" id="subcat19" value="19" onclick="onChangeSubcat(this)">CORDON</button>
+					<button class="BotonSubCat" id="subcat20" value="20" onclick="onChangeSubcat(this)">COULURE</button>
+					<button class="BotonSubCat" id="subcat21" value="21" onclick="onChangeSubcat(this)">ESPOLVOREADO</button>
+					<button class="BotonSubCat" id="subcat22" value="22" onclick="onChangeSubcat(this)">TONALIDAD</button>
+					<button class="BotonSubCat" id="subcat23" value="23" onclick="onChangeSubcat(this)">BASE ESCASA</button>
+					<button class="BotonSubCat" id="subcat24" value="24" onclick="onChangeSubcat(this)">LACA ESCASA</button>
+					<button class="BotonSubCat" id="subcat25" value="25" onclick="onChangeSubcat(this)">SIN CUBRIR</button>
+					<button class="BotonSubCat" id="subcat26" value="26" onclick="onChangeSubcat(this)">PIEL NARANJA</button>
+					<button class="BotonSubCat" id="subcat27" value="27" onclick="onChangeSubcat(this)">LINEA CORTE BITONO</button>
+					<button class="BotonSubCat" id="subcat28" value="28" onclick="onChangeSubcat(this)">DESCONCHADO</button>
+					<button class="BotonSubCat" id="subcat29" value="29" onclick="onChangeSubcat(this)">ATTAQUE ELE</button>
+					<button class="BotonSubCat" id="subcat30" value="30" onclick="onChangeSubcat(this)">ASPECT CATA</button>
+					<button class="BotonSubCat" id="subcat31" value="31" onclick="onChangeSubcat(this)">REPARACION DEFICIENTE</button>
+					<button class="BotonSubCat" id="subcat32" value="32" onclick="onChangeSubcat(this)">PINHOLES</button>
+					<button class="BotonSubCat" id="subcat33" value="33" onclick="onChangeSubcat(this)">RESTO</button>
+				</div>
+			</div>
+		</div>
+		<div style="display: flex;width: 95%;justify-content: space-between;">
+			<div>
+				<button id="brep" class="BotonReparado" onclick="changeRepair()">REPARADO</button>
+			</div>
+			<div style="display:flex;gap:10px;align-items: center;">
+				<button class="Boton_resultados" onclick="saveDefect()">GUARDAR</button>
+				<button class="Boton_resultados" onclick="closeDefect()">CANCELAR</button>
+			</div>
+		</div>
+	</div>
+	<div id="pclick" style="top: 100px; left: 100px;visibility:hidden"></div>
+	
+	<script>
+		var DATA = {"new": 0, "id":0,"weight":0,"size":0,"subcat":0,"x":0,"y":0,"zone":0, 
+		"xabs":0, "yabs":0, "target": null, "modified": false, "reparado": false};
+		
+		function ActInfoDefect(){
+			document.getElementById("infoDefect").style.visibility = "visible";
+		
+			const dsubcats = document.getElementById("dsubcats").children;
+			for (let i = 0; i < dsubcats.length; i++) {
+				dsubcats[i].style.backgroundColor = "gainsboro"; 
+			} 
+			document.getElementById("subcat"+DATA.subcat).style.backgroundColor = "#8be0ea";
+			document.getElementById("dweight").innerHTML = DATA.weight;
+			document.getElementById("dsize").innerHTML = DATA.size;
+			document.getElementById("dx").innerHTML = DATA.x;
+			document.getElementById("dy").innerHTML = DATA.y;
+			
+			let border = 0;
+			
+			let xpos = DATA.xabs;
+			if(xpos > 1920 / 2) {
+				xpos = xpos - document.getElementById("infoDefect").offsetWidth;
+				border += 1;
+			}
+			document.getElementById("infoDefect").style.left = xpos + "px";
+			
+			let ypos = DATA.yabs;
+			if(ypos > 1080 / 2) {
+				ypos = ypos - document.getElementById("infoDefect").offsetHeight;
+				border += 2;
+			}
+			document.getElementById("infoDefect").style.top = ypos + "px";
+			
+			let maincolor = "#d89a7ceb";
+			if(DATA.new == 1) {maincolor = "#8dda9beb";}
+			switch(border){
+				case 0: 
+						document.getElementById("infoDefect").style.borderRadius = "0px 25px 25px 25px"; 
+						document.getElementById("infoDefect").style.background = 'linear-gradient(135deg,#494949 15px,'+maincolor+' 0)';
+				break;
+				case 1: 
+						document.getElementById("infoDefect").style.borderRadius = "25px 0px 25px 25px"; 
+						document.getElementById("infoDefect").style.background = 'linear-gradient(225deg,#494949 15px,'+maincolor+' 0)';
+				break;
+				case 2: document.getElementById("infoDefect").style.borderRadius = "25px 25px 25px 0px"; 
+						document.getElementById("infoDefect").style.background = 'linear-gradient(45deg,#494949 15px,'+maincolor+' 0)';
+				break;
+				case 3: 
+						document.getElementById("infoDefect").style.borderRadius = "25px 25px 0px 25px"; 
+						document.getElementById("infoDefect").style.background = 'linear-gradient(315deg,#494949 15px,'+maincolor+' 0)';
+				break;
+			}
+			
+			document.getElementById("pclick").style.left = DATA.xabs + "px";
+			document.getElementById("pclick").style.top = DATA.yabs + "px";
+			
+			
+			if(DATA.new == 1) {document.getElementById("infoDefect").style.backgroundColor = "#8dda9beb";}
+			else {document.getElementById("infoDefect").style.backgroundColor = "#d89a7ceb";}
+			if(DATA.reparado) {document.getElementById("brep").style.backgroundColor = "#63f96e";}
+			else {document.getElementById("brep").style.backgroundColor = "#f09595";}
+		}
+
+		function ShowDefect(div, e, d){
+			var e = window.event;
+			e.cancelBubble = true;
+			if (e.stopPropagation) e.stopPropagation();
+			
+			if(DATA.new == 0 && !DATA.modified && DATA.target){
+				DATA.target.style.outline = "none"; // Si había un defecto marcado y se hace click a otro se quita
+			} 
+
+			let dx = d.x;
+			let dy = d.y;
+			let ndx = dx;
+			let ndy = dy;
+			let divzona = document.getElementsByClassName("zone0" + d.zone);
+			let transforms = divzona[0].transform.animVal;
+			for(let i = transforms.length - 1; i >= 0;i--){
+				const t = transforms[i].matrix;
+				ndx = t.d * dx + t.c * dy + t.e;
+				ndy = t.b * dx + t.a * dy + t.f;
+				dx = ndx;
+				dy = ndy;
+			}
+
+			let modified = false;
+			if(div.style.color == "green") { modified = true;};
+			let reparado = false;
+			if(div.getAttribute('reparado') != null) {reparado = div.getAttribute('reparado') == "true";};
+			let subcat = d.type;
+			if(div.getAttribute('subcat') != null) {subcat = div.getAttribute('subcat');};
+
+			
+			DATA = {"new": 0,"id":d.id,"weight":d.weight,"size":d.size,"subcat":subcat,"x":d.x,"y":d.y,"zone":d.zone,
+			 "xabs":dx, "yabs":dy, "target":div, "modified": modified, "reparado": reparado};
+
+			div.style.outline = "solid";
+			
+			ActInfoDefect();
+		}
+		
+		function changeRepair(div){
+			DATA.reparado = !DATA.reparado;
+			ActInfoDefect();
+		}
+		function onChangeSubcat(div){
+			DATA.subcat = div.value;
+			ActInfoDefect();
+		}
+
+		function saveDefect(){
+			if(DATA.new == 1) {
+				let div = document.createElement('div');
+				let cdiv = document.createElement('div');
+				cdiv.style = "width: 20px;height: 20px;border-radius: 50%;background-color: yellow;";
+				div.style = "position:absolute;outline:solid;z-index:1";
+				div.style.left = (DATA.xabs - 10) + "px";
+				div.style.top = (DATA.yabs - 10) + "px";
+				div.appendChild(cdiv);
+				let obj = '{\'id\':0,\'weight\':\'--\',\'size\':\'--\',\'type\':'+DATA.subcat+',\'x\':'+DATA.x+',\'y\':'+DATA.y+',\'zone\':'+DATA.zone+'}';
+				div.setAttribute('onclick',"AdminUI.ShowDefect(this,event,"+obj+")");
+				document.getElementById("cuerpo").appendChild(div);
+				DATA.target = div;
+				// Hacer lo que se tenga que hacer al añadir un nuevo defecto
+			}
+			else {
+				// Hacer lo que se tenga que hacer al modificar un defecto existente
+			}
+			
+			DATA.modified = true;
+			DATA.target.style.color = "green";
+			DATA.target.setAttribute("reparado", DATA.reparado);
+			DATA.target.setAttribute("subcat", DATA.subcat);
+
+			document.getElementById("infoDefect").style.visibility = "hidden";
+		}
+
+		function closeDefect(){
+			if(DATA.new == 1) {} // Hacer algo??
+			else { if(!DATA.modified) {DATA.target.style.outline = "none";}}
+			document.getElementById("infoDefect").style.visibility = "hidden";
+		}
+
+		function isOpaque(x,y,zone){
+			let divzona = document.getElementsByClassName("zone0" + zone);
+			let transforms = divzona[0].transform.animVal;
+			let canvas = document.createElement('canvas');
+			canvas.width = 1920;
+			canvas.height = 1080;
+			let ctx = canvas.getContext('2d', { willReadFrequently: true });
+			ctx.save(); 
+			for(let i = 0; i < transforms.length;i++){
+				const t = transforms[i].matrix;
+				ndx = t.d * dx + t.c * dy + t.e;
+				ndy = t.b * dx + t.a * dy + t.f;
+				dx = ndx;
+				dy = ndy;
+				ctx.transform(t.a, t.b, t.c, t.d, t.e, t.f);
+			}
+			ctx.drawImage(divzona[0].querySelector('image'), 0, 0, 1920, 1080);
+			ctx.restore();
+			return ctx.getImageData(x, y, 1, 1).data[3] != 0;
+		}
+		
+		function clickOnZone(e, zone){
+			if(isOpaque(e.offsetX,e.offsetY,zone)){
+				if(DATA.new == 0 && !DATA.modified && DATA.target){
+					// Si había un defecto marcado y se hace click a otro se quita
+					if(!DATA.modified) {DATA.target.style.outline = "none";} 
+				}
+
+				let dx = e.offsetX;
+				let dy = e.offsetY;
+				let ndx = dx;
+				let ndy = dy;
+				let divzona = document.getElementsByClassName("zone0" + zone);
+				let transforms = divzona[0].transform.animVal;
+				for(let i = 0; i < transforms.length;i++){
+					const t = transforms[i].matrix.inverse();
+					ndx = t.d * dx + t.c * dy + t.e;
+					ndy = t.b * dx + t.a * dy + t.f;
+					dx = ndx;
+					dy = ndy;
+				}
+
+				DATA = {"new": 1,"id":0,"weight":"--","size":"--","subcat":0,"x":dx.toFixed(0),"y":dy.toFixed(0),"zone":zone,
+				 "xabs":e.offsetX, "yabs":e.offsetY, "target": null, "modified": false, "reparado":false};
+
+				ActInfoDefect();
+			}
+		}
+
+		const AdminUI = {ShowDefect};
+	</script>
+	</body>
+</html>

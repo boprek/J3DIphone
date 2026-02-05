@@ -1,0 +1,115 @@
+"Unbekannter Fehler",
+"Startdatum kann nicht in der Zukunft liegen",
+"Das Format des Weincodes ist falsch",
+"Das Format des Skid-Codes ist nicht korrekt",
+"Das Format des Ausweiscodes ist nicht korrekt",
+"Sie müssen mindestens eine Fehlerart auswählen",
+"Sie müssen mindestens eine Farbe auswählen",
+"Sie müssen mindestens ein Modell auswählen",
+"Sie müssen mindestens eine Produktionslinie auswählen",
+"Sie können nur ein Modell für dieses Diagramm auswählen
+"Daten nicht gefunden",
+"Anzahl der Fehler pro Bereich für ein Auto",
+"Unbekannte Farbe",
+"Motorhaube (Z1)",
+"Dach (Z2)",
+"Heckklappe (Z3)",
+"Rechte Seite (Z4)",
+"Seite<br>Links (Z5)",
+"Heckklappe<br>horizontal (Z6)",
+"Schmutz",
+"Mängel am Blech",
+"Sonstiges",
+"Gesamtzahl der Mängel pro Zone",
+"Anzahl der Fehler pro Zone für Auswahlkriterien",
+"Unzureichende Daten zur Erstellung eines Diagramms",
+"Alle Farben",
+"Anzahl der Fehler",
+"Modell ",
+", Farbe '",
+"Anzahl der Fehler",
+"Mängel",
+"Mängel im Blech",
+"Mängel, Mängel im Blech",
+"andere",
+"mangelhaft, sonstiges",
+"schmutz Blech, sonstiges",
+"Mängel, Blechfehler, sonstige",
+"Durchschnittliche Anzahl der Mängel",
+"Durchschnittliche Anzahl von Mängeln pro Zone für ",
+" Fahrzeuge (",
+"Anzahl der Mängel pro Zone für ",
+"Modelle: ",
+" Farben '",
+"Durchschnittliche Gesamtzahl der Mängel pro Zone",
+"Autos)",
+"Statistische Daten nach Modell (",
+"Farben: ",
+" Defekttypen:",
+" Farben",
+" Defekttypen: ",
+"Statistische Daten nach Farbe (",
+"Modelle: ",
+"_<br>Muster",
+"Sonstige",
+"Blechfehler",
+"Schmutz",
+"<br>Farben '",
+"Schmutz (",
+') nach Art in %',
+') nach Farbe in %',
+"Modell:",
+"<br>Farben '",
+"Autos: ",
+"<br>Farben: '",
+"Cars: 1",
+"Sind Sie sicher, dass Sie gehen wollen?",
+"Sie müssen Mono-Ton oder Bi-Ton auswählen",
+"Modell: ",
+"Alle Farben2",
+"Farben2 '",
+"<br>Mittelwert ",
+"<br>Median "
+"Grafischer Mittelwert "
+"Insgesamt"
+"Motorhaube (Z1)",
+"Dach (Z2)",
+"Heckklappe (Z3)",
+"Rechte Seite (Z4)",
+"Seite Links (Z5)",
+"Heckklappe horizontal (Z6)",
+" - <b>Globaler Mittelwert: "
+" - <b>Totale Mängel: "
+"Fehler j3dServerUI"
+
+
+[HTML]
+
+"rtOneCarl" 		"  Ein Auto"
+"rtHeatMapl" 		" HeatMap"
+"rtStatsl" 			" Statistik"
+"rtBarl" 			" Balkendiagramm I"
+"rtPiel" 			" Kreisdiagramm"
+"rtBarIIl" 			" Balkendiagramm II"
+"rtMeanl" 			" Grafik der Mittelwerte"
+"selVinsl" 			" Vins"
+"selSkidl" 			" Skid"
+"selValuel" 		" Wert:&nbsp "
+"selBadgel" 		" Badge"
+"selMultil" 		" Multikriterien"
+"linAl" 			" Zeile "
+"linBl" 			" Zeile "
+"linCl" 			" Zeile "
+"linDl" 			" Zeile "
+"datel" 			"Datum&nbsp"
+"Initdatel" 		"Startdatum"
+"Findatel" 			"Enddatum"
+"MonoTonl" 			" Einfarbig"
+"BiTonl" 			" Zweifarbig"
+"BiTonExtl" 		" Erweitert zweifarbig"
+"allColorsl1" 		" Alle Farben"
+"allColorsl2" 		" Alle Farben"
+"Rangel" 			" Skalenbereich"
+"defDirtl" 			" Schmutz"
+"defBollol" 		" Rohbaufehler"
+"defOthersl" 		" Andere"

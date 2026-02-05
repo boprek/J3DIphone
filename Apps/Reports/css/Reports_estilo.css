@@ -1,0 +1,178 @@
+/* GENERAL */
+@font-face{
+	font-family: 'Montse_regular';
+	font-style: normal;
+	font-weight: 400;
+	src: url('Montserrat-Medium.ttf');
+}
+
+*{
+   font-family: 'Montse_regular';
+   padding: 0;
+   margin: 0;
+   cursor: pointer;
+   src: url('Montserrat-Medium.ttf');
+}
+
+body{
+	background-image: url('../images/Wallpaper.png');
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+/* @media print {
+	body * { 
+		visibility: hidden !important;
+	}
+	
+	#Impresion, #Impresion * { 
+		visibility: visible !important;
+	}
+
+	@page{
+		margin-left: 0px !important; 
+		margin-right: 0px !important;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}	
+} */
+
+/*HEAP MAP*/
+#divHeatMap{
+	top:  calc((100vh - 60px - 890px)/2);
+}
+
+/* SCROLL*/
+::-webkit-scrollbar{
+    width: 12px;
+	height: 10px;
+} 
+::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background-color: #f18155;
+}
+
+#divColors::-webkit-scrollbar{
+    width: 6px;
+	background-color: white;
+}
+
+#divColors2::-webkit-scrollbar{
+    width: 6px;
+	background-color: white;
+}
+
+
+.fixed {
+	position: fixed;
+}
+.rel {
+	position: absolute;
+}
+.params {
+	border-style:none;
+}		
+	
+g.pointtext{
+	display: none;
+}	
+
+/* IMPRESIÓN */
+@media print {
+	body * { 
+		visibility: hidden !important;
+	}
+	#printDiv, #printDiv * { 
+		visibility: visible !important;
+	}
+
+	@page{
+		margin-left: 0px !important; 
+		margin-right: 0px !important;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}	
+}
+
+/* Buscador */
+#paramsId{
+	top:70px; 
+	left:10px; 
+	width:600px; 
+	height:1000px; 
+	border-radius: 8px 18px 18px 8px; 
+	background-color: #e0e0e0f3; 
+	z-index: 1; 
+	display:inline;
+	font-size: 14px;
+}
+
+#Rsalir{
+	float:left;
+	margin-top:10px;
+}
+
+#Rgenerar{
+	float:right;
+	margin-top:10px;
+}
+
+#boton_salir{		
+	content: url(../images/LeaveButton.png);
+}
+#boton_salir:hover{
+	content: url(../images/LeaveButtonH.png);
+}
+
+/* IMAGENES */
+#imgHome{		
+	content: url(../images/MainButton.png);
+}
+#imgHome:hover{		
+	content: url(../images/MainButtonH.png);
+}
+#RepimgPrint{
+	content: url(../images/PrintButton2.png);
+}
+#RepimgPrint:hover{
+	content: url(../images/PrintButton2H.png);
+}
+#RepTypeHeader{
+	content: url(../images/ReportTypeHeader.png);
+}
+#RepSelectionOptions{
+	content: url(../images/SelectionOptions.png);
+}
+#RepHeaderColors{
+	content: url(../images/ColorsHeader.png);
+}
+#RepHeaderColors2{
+	content: url(../images/ColorsHeader2.png);
+}
+#RepHeaderModels{
+	content: url(../images/ModelsHeader.png);
+}
+#RepDefectTypeHeader{
+	content: url(../images/DefectTypeHeader.png);
+}
+#Rsalir{
+	content: url(../images/Salir.png);
+}
+#Rsalir:hover{
+	content: url(../images/SalirH.png);
+}
+#Rgenerar{
+	content: url(../images/Generar.png);
+}
+#Rgenerar:hover{
+	content: url(../images/GenerarHover.png);
+}
+#RepimgLoading{
+	content: url(../images/loading2.gif);
+}
+#RepimgLoading{
+	content: url(../images/loading2.gif);
+}
+#RepFondoPrint{
+	content: url(../images/Fondo_600ppp.png);
+}

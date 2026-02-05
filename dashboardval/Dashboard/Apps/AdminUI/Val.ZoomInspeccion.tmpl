@@ -1,0 +1,25 @@
+<div class="InfoZoom" style="position:relative;top:30px;left:98px;">
+	<text id = "UltRelai" class="DatoZoom" style="position:absolute;top:6px;left:20px"></text>
+	<text id = "UltBarcode" class "DatoZoom" style="position:absolute;top:1px;left:20px">*%%pji%%-%%clepji%%*</text>
+	<text id = "UltVis" class="DatoZoom"   style="position:absolute;top:6px;left:200px">PJI %%pji%%</text>
+	<text id = "UltModelo" class="DatoZoom" style="position:absolute;top:6px;left:316px">Modelo %%modelo%%.%%variante%% (%%codigo_modelo%%)</text>
+	<text id = "UltColor1" class="DatoZoom" style="position:absolute;top:6px;left:496px">(%%codigo_color1%%) %%color1%%</text>
+	<div  id="UltColorWeb1" class="ColorWebZoom" style="position:absolute;top:3px;left:465px;background-color:#%%color_web1%%"></div>
+	<text id = "UltColor2" class="DatoZoom" style="position:absolute;top:6px;left:708px;display:%%biton%%">(%%codigo_color2%%) %%color2%%</text>
+	<div  id="UltColorWeb2" class="ColorWebZoom" style="position:absolute;top:3px;left:680px;background-color:#%%color_web2%%;display:%%biton%%"></div>
+	<text id = "UltPais"   class="DatoZoom" style="position:absolute;top:6px;left:940px">País %%pais%%</text>
+	<text id = "UltFecha"     class="DatoZoom" style="position:absolute;top:6px;left:1092px">Fecha %%fecha%%</text>
+</div>
+<div class="ImagenZoom" style="position:relative;top:50px;left:140px;">
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1248" height="702">
+		<g transform="translate(0,0)  rotate(0,0,0) scale(0.65)">
+			%%svg_zona%%
+		</g>
+	</svg>
+</div>
+<img id="boton_cerrar" style="z-index:2;position:absolute;top:3px; left:1487px;" onclick="AdminUI.cerrarZoom()"></img>
+<img id ="boton_imprimir" type="button" style="position:absolute; top:800px; left:743px" onclick="AdminUI.imprimir(%%id_inspeccion%%);"></img>
+<img id ="boton_guardar" type="button" style="position:absolute; top:800px; left:793px" onclick="AdminUI.guardar(%%id_inspeccion%%);"></img>
+<img id ="boton_delante_zoom" type="button" style="position:absolute; top:410px; left:1440px" onclick="AdminUI.ActualizaZoom(1);"></img>
+<img id ="boton_atras_zoom" type="button" style="position:absolute; top:410px; left:45px" onclick="AdminUI.ActualizaZoom(-1);"></img>
+

@@ -1,0 +1,34 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style id="styleDash">
+			@page{
+				size: landscape;
+				size: portrait;
+			}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/Reports_estilo.css">
+	<script src='js/compress.js'></script>
+	<script src='js/util.js'></script>	
+	<script src='js/graphs.js'></script>
+	<script src='js/Reports.js'></script>	
+	<body style="overflow-x: hidden;">	
+		<div id="DashBar">
+			<img class="fixed" src="images/Mainbar.png" style="top: 0; left:0; z-index: 15;"></img>
+			<div id="EAStatus" style="position:absolute;z-index:17;top:12px;">
+				<img class="fixed" id="StatusPLC" style="left:1775px"/>
+				<img class="fixed" id="StatusLED" style="left:1675px"/>
+				<img class="fixed" id="StatusSYS" style="left:1575px"/>
+				<img class="fixed" id="boton_ChangeDefects" style="left:1475px" onclick="Reports.ChangeDefects()"/>
+			</div>
+			<img class="fixed" id="boton_salir" style="top:6px; left:1869px;z-index:17" onclick="Reports.Exit()"></img>
+		</div>
+		<div id="Apps">
+			<div id="Reports" style="display:none;width: 100vh;height: 100vh;"></div>
+		</div>
+		</div>
+		<script>
+			var ip_server = "localhost:8192";
+			var Reports = CreateReports(ip_server);
+		</script>
+	</body>
+</html>

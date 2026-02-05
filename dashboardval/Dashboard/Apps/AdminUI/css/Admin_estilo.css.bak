@@ -1,0 +1,603 @@
+/* #boton_ChangeDefects{display:none !important;} */
+
+/* GENERAL */
+@font-face{
+	font-family: 'Montse_regular';
+	font-style: normal;
+	font-weight: 400;
+	src: url('Montserrat-Medium.ttf');
+}
+@font-face{
+	font-family: 'Code39';
+	src: url('C:/J3D/Dashboard/Apps/AdminUI/css/Code39.ttf') format('truetype');
+}
+
+
+*{
+   font-family: 'Montse_regular';
+   padding: 0;
+   margin: 0;
+   cursor: pointer;
+   src: url('Montserrat-Medium.ttf');
+}
+
+body{
+	background-image: url('../images/Wallpaper.png');
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+@media print {
+	body * { 
+		visibility: hidden !important;
+	}
+	
+	#Impresion, #Impresion * { 
+		visibility: visible !important;
+	}
+
+	@page{
+		margin-left: 0px !important; 
+		margin-right: 0px !important;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}	
+}
+
+/* SCROLL*/
+::-webkit-scrollbar{
+    width: 12px;
+	height: 10px;
+} 
+::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background-color: #f18155;
+}
+
+
+#selec_modelos::-webkit-scrollbar{
+    width: 6px;
+	background-color: white;
+}
+#selec_modelos{
+	max-height: 280px !important;
+	font-size: 13px;
+}
+#selec_colores::-webkit-scrollbar{
+    width: 6px;
+	background-color: white;
+}
+#selec_colores{
+	max-height: 440px !important;
+	overflow-y: auto !important;
+}
+
+#p_pais::-webkit-scrollbar{
+    width: 6px;
+	background-color: white;
+}
+
+/* BUSCADOR */
+#OpcionesBuscador{
+	 width:700px; 
+	 height:910px; 
+	 border-radius: 8px 8px 8px 8px; 
+	 background-color: #e0e0e0f3;
+	 box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(255, 255, 255) 0px 0px 6px;
+}
+.OpcionBuscador{
+	color: black;
+	width:150px; 
+}
+
+.CajaOpcionBuscador{
+	cursor:pointer;
+	height: 20px; 
+	width: 167px; 
+	background-color:white;
+	color: black;
+	border-width: 1px;
+	font-size:12px;
+}
+
+#boton_buscador{
+	content: url(../images/Chercher.png);
+}
+#boton_buscador:hover{
+	content: url(../images/ChercherH.png);
+}
+
+#buscador_buttons{
+	position:absolute; 
+	top:870px; 
+	left:20px;
+}
+
+
+/*RESULTADOS*/
+#resultados{
+	width: 1632px; 
+	height: 520px; 
+	background-color:#C8C8DCf3; 
+	box-shadow: rgba(0, 0, 0, 1) 0px 0px 20px, rgba(255, 255, 255) 0px 0px 6px;
+	border-radius: 8px 18px 18px 8px; 
+	display: none;
+}
+ 
+#NumRes{
+	-webkit-text-stroke-width: 0.01px;
+	-webkit-text-stroke-color: #000;
+	color: black; 
+	width:700px; 
+	height:20px;  
+	font-size: 25px;
+}
+.Seccion{
+	display: inline-block; 
+	width: 320px; 
+	height: 415px; 
+	margin-left: 4px;
+	background-color: #e0e0e0f3; 
+	border-radius: 16px 16px 16px 16px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 8px, rgba(255, 255, 255, 0.3) 0px 2px 2px;
+}
+.InfoInspeccionRes{
+	width: 308px; 
+	height: 100px; 
+	background-color: #ee763177; 
+	border-radius: 8px 8px 8px 8px; 
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
+}
+.DatoResultados{
+	display: inline-block;
+	width: 350px; 
+	color:black; 
+	font-size:11px;
+}
+.DatoResultadosBold{
+	display: inline-block;
+	width: 350px; 
+	color:black; 
+	font-size:14px;
+	font-weight: bold;
+}
+
+.ColorWebResultados{
+	background-color: #000000; 
+	width: 14px; 
+	height: 14px; 
+	background-image: url(../images/brillos_color.png); 
+	background-size: 34px;
+	border-style: solid; 
+	border-color: black; 
+	border-width:2px;
+}
+
+#borroso{
+	width: 1920px; 
+	height: 100vh; 
+	background-color:#50320C73;
+	display:none;
+}
+
+.Boton_resultados{
+	 color: black;
+	 text-align:center; 
+	 background-color: #6AC7DE; 
+	 color: black;
+	 font-size: 14px; 
+	 width:100px; 
+	 height:30px; 
+	 border-radius: 18px 18px 18px 18px;
+}
+
+.info_icon{
+	content: url(../images/info_icon.png);
+	width: 32px;
+}
+
+/* INSPECCIONES */
+#Inspecciones{
+	left:0px; 
+	width:1920px;  
+	height:95vh; 
+	overflow-x:hidden; 
+}
+
+
+.Inspeccion{
+	background-color:rgb(200,200,220); 
+	width:1800px; 
+	height:243px;
+	margin-top: 12px; 
+	margin-left: 80px; 
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 6px 6px 6px;
+	transition-property: opacity, left, top, height;
+  	transition-duration: 3s, 5s;
+	font-size: 14px;
+}
+
+.InfoInspeccion{ 
+	width:1786px; 
+	height:30px;
+	background-color: #ee763177; 
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
+}
+.DatoInspeccion{
+	width: 350px;
+	display: inline-block;
+	color:black;
+}
+.ColorWebInspeccion{
+	background-color: #000000; 
+	width: 20px; 
+	height: 20px; 
+	background-image: url(../images/brillos_color.png); 
+	background-size: 30px;
+	border-style: solid; 
+	border-color: black; 
+	border-width:2px;
+}
+.ImagenesInspeccion{
+	 background-color:red;
+}
+.ZonaInspeccion{
+	width: 288px; 
+	height: 162px;
+	background-color:black;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 1) 0px 2px 3px;
+}
+
+
+/* ZOOM */
+#Zoom_Inspecciones{
+	width: 1536px; 
+	height: 864px; 
+	background-color:#e0e0e0f3; 
+	opacity: 1; 
+	box-shadow: rgba(0, 0, 0, 1) 0px 0px 20px, rgba(255, 255, 255) 0px 0px 6px;
+	border-radius: 8px 18px 18px 8px; 
+}
+.InfoZoom{
+	width:1350px; 
+	height:40px;
+	background-color: #ee763177; 
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
+	font-size: 14px;
+}
+.DatoZoom{
+	display: inline-block;
+	width: 350px;
+	color:black;
+}
+.ColorWebZoom{
+	background-color: #000000; 
+	width: 20px; 
+	height: 20px; 
+	border-style: solid; 
+	border-color: black; 
+	border-width:2px;
+	background-image: url(../images/brillos_color.png);
+}
+.ImagenZoom{
+	width: 1270px; 
+	height:702px;
+	background-color: black;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px, rgba(0, 0, 0, 1) 0px 0px 10px;	
+}
+
+#DefectInfo{
+	position:absolute;
+	width: 450px; 
+	height:125x;
+	z-index:10;
+	background-color: red;
+}
+/* Get info */
+#GetInfo{
+	width: 1536px; 
+	height: 950px; 
+	background-color:#949494f3; 
+	opacity: 1; 
+	border-style: solid; 
+	border-color: black; 
+	border-radius: 8px 18px 18px 8px;	
+}
+
+#Frame{
+	word-wrap: break-word;
+	width: 1300px;
+	color: black;
+}
+
+#Caracteristicas{
+	word-wrap: break-word;
+	width: 1300px;
+	color: black;
+}
+
+
+/* IMPRESION */
+#PJI_Barcode {
+    position: absolute;
+    width: 80px;
+	height: 100px;
+    top: 20px;
+    right: 160px;
+	font-family: 'Code39', sans-serif;
+    white-space: nowrap;
+	font-size: 25px;
+}
+
+#msdefects{
+	position:absolute;
+	width: 80px;
+	height: 100px;
+	top:1000px;
+	right:120px;
+}
+#PJI_sub strong {
+    font-weight: bold;
+}
+
+#PJI_sub1 {
+	position: absolute;
+	width: 100px;
+	top: 51px;
+	right: 80px;
+	font-family: Montserrat-Medium;
+	white-space: nowrap;
+	font-size: 10px;
+
+}
+#PJI_sub2 {
+	position: absolute;
+	width: 100px;
+	top: 50px;
+	right: 55px;
+	font-family: Montserrat-Medium;
+	white-space: nowrap;
+	font-size: 10px;
+
+}
+	
+#impresion {
+    width: 209mm;
+    height: 296mm;
+    background-color: transparent;
+    display: block;
+	position: relative;
+}
+
+.DatoImpresion {
+    display: inline-block;
+    margin-right: -4px;
+    color: black;
+    border: 1px solid #000;
+    font-size: 9px;
+    text-align: center;
+    vertical-align: top;
+    height: 6mm;
+    line-height: 123%;
+	white-space: nowrap;
+}
+
+.ColorWebImpresion {
+    background-color: #000000;
+    width: 10px;
+    height: 10px;
+    background-image: url(../images/brillos_color.png);
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.ImagenImpresion {
+    display: block;
+	
+}
+
+
+
+
+
+/* 3D */
+#View3d{
+	width: 1536px; 
+	height: 864px; 
+	background-color:#e0e0e0f3; 
+	opacity: 1; 
+	box-shadow: rgba(0, 0, 0, 1) 0px 0px 20px, rgba(255, 255, 255) 0px 0px 6px;
+	border-radius: 8px 18px 18px 8px; 
+}
+
+#panel3d{
+	width: 1436px; 
+	height: 764px; 
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px, rgba(0, 0, 0, 1) 0px 0px 10px;
+}
+
+#infoDefect{
+	position: absolute;
+	visibility: hidden;
+    background-color: #d89a7ceb;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border-radius: 25px;
+    border: 3px solid #684330;
+    width: 185px;
+    height: 115px;
+    z-index: 9;
+    font-size: 18px;
+    box-shadow: rgb(0 0 0) 0px 0px 20px, rgb(255 255 255) 0px 0px 6px;
+}
+
+/* CARTEL SAVES */
+#cartel_save{
+	position:absolute;
+	background-color:#e0e0e0f3;
+	color : white;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	border-radius: 25px;
+	border: 3px solid white;
+	top:27px;
+	left:799px;
+	width:350px;
+	height:100px; 
+	z-index: 80;
+	font-size: 18px;
+    font-weight: bold;
+	box-shadow: rgb(0 0 0) 0px 0px 20px, rgb(255 255 255) 0px 0px 6px;
+}
+
+/* Caja de configuración de defectos del tgroup */
+#BoxCFGdefects{
+	position: absolute;
+    background-color: #e0e0e0f3;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border-radius: 25px;
+    border: 3px solid #684330;
+    top: 85px;
+    left: 20px;
+    width: 400px;
+    height: 100px;
+    z-index: 6;
+    padding-top: 9px;
+    padding-left: 22px;
+    font-size: 18px;
+}
+
+#BoxCFG{
+	position: absolute;
+    background-color: #d89a7ceb;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border-radius: 25px;
+    border: 3px solid #684330;
+    top: 27px;
+    left: 799px;
+    width: 445px;
+    height: 200px;
+    z-index: 6;
+    padding-top: 9px;
+    padding-left: 22px;
+    font-size: 18px;
+    box-shadow: rgb(0 0 0) 0px 0px 20px, rgb(255 255 255) 0px 0px 6px;
+}
+
+/* Circulo */
+.dot {
+	height: 15px;
+	width: 15px;
+	background-color: red;
+	border-radius: 50%;
+	margin-right: 3px;
+	border: 1px solid #000;
+	display: inline-block;
+  }
+
+/* BOTONES GENERALES */
+#boton_guardar{
+	content: url(../images/SaveButton.png);
+}
+#boton_guardar:hover{
+	content: url(../images/SaveButtonH.png);
+}
+
+#boton_imprimir{
+	content: url(../images/PrintButton.png);
+}
+#boton_imprimir:hover{
+	content: url(../images/PrintButtonH.png);
+}
+
+#boton_UI{
+	content:url(../images/SaveButton.png);
+}
+#boton_UI:hover{
+	content:url(../images/SaveButtonH.png);
+}
+
+#boton_cerrar{		
+	content: url(../images/CloseButton.png);
+}
+#boton_cerrar:hover{
+	content: url(../images/CloseButtonH.png);
+}
+
+#boton_delante_zoom{		
+	content: url(../images/NextButton.png);
+}
+#boton_delante_zoom:hover{
+	content: url(../images/NextButtonH.png);
+}
+
+#boton_atras_zoom{		
+	content: url(../images/PreviousButton.png);
+}
+#boton_atras_zoom:hover{
+	content: url(../images/PreviousButtonH.png);
+}
+
+#boton_salir{		
+	content: url(../images/LeaveButton.png);
+}
+#boton_salir:hover{
+	content: url(../images/LeaveButtonH.png);
+}
+
+#boton_salirB{		
+	content: url(../images/Exit.png);
+}
+#boton_salirB:hover{
+	content: url(../images/ExitH.png);
+}
+
+#boton_view3d{		
+	content: url(../images/3D.png);
+}
+#boton_view3d:hover{
+	content: url(../images/3DH.png);
+}
+
+#MuestraBuscador{		
+	content: url(../images/MainButton.png);
+}
+
+#MuestraBuscador:hover{
+	content: url(../images/MainButtonH.png);
+}
+
+#logo_EagleEYE{
+	content: url(../images/EagleEye.png);
+}
+
+
+
+/* HEADERS */
+#AdmColorHeader1{		
+	content: url(../images/ColorsHeader.png);
+}
+#AdmColorHeader2{		
+	content: url(../images/ColorsHeader2.png);
+}
+#AdmModelsHeader{		
+	content: url(../images/ModelsHeader.png);
+}
+#AdmBodyworkHeader{		
+	content: url(../images/BodyworkHeader.png);
+}
+#imagen_cargando{		
+	content: url(../images/loading.gif);
+}

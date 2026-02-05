@@ -1,0 +1,93 @@
+<script src="/Apps/AdminUI/js/AdminUI.js"></script>
+<script src="/Apps/AdminUI/AdminUI.html"></script>
+<div id = "impresion">
+<div class="InfoImpresion" style="position:absolute; width:180mm; top:272mm; left:15mm">
+		<text id = "PJI"     class="DatoImpresion" style="width:17.5mm">PJI <br> %%pji%%-%%clepji%% </text>
+		<text id = "FlujosMasticos"  class ="DatoImpresion" style="width: 17.5mm">Flu. Masticos<br> %%masticos%% </text>
+		<text id = "Fecha"  class ="DatoImpresion" style="width: 25mm">Fecha<br> %%fecha%% </text>
+		<text id = "Motorizacion"     class="DatoImpresion" style="width:22.5mm">Motorización <br> %%Motorizacion%% </text>
+		<text id = "UltModelo" class ="DatoImpresion" style="width:15mm">Modelo <br>%%modelo%%.%%variante%%</text>	
+		<text id = "DFV"  class ="DatoImpresion" style="width: 22.5mm">DFV<br> %%dfv%% </text>
+		<text id="Bitono" class="DatoImpresion" style="width:12.5mm"><tspan style="opacity:%%bitono%%"; style="text-align:center"; style="text-anchor: middle";style= "alignment-baseline: middle"><br>Bitono</tspan></text>
+		<text id = "UltColor" class="DatoImpresion" style="width:35mm">Color 1 <br>(%%codigo_color1%%) %%color1%%</text>
+		
+		
+		<text id = "FlujosPintura"   class ="DatoImpresion" style="width:17.5mm">Flu. Pintura<br>%%flujospintura%%</text>
+		<text id = "FlujosTecho"  class ="DatoImpresion" style="width: 17.5mm">Flu. Techo<br> %%flujostechos%% </text>
+		<text id = "TipoTecho"     class="DatoImpresion" style="width:25mm">Tipo de Techo <br>%%TipoTecho%%</text>
+		<text id = "UltPais"   class ="DatoImpresion" style="width:22.5mm">País <br>%%pais%%</text>
+		<text id = "Trineo"     class="DatoImpresion" style="width:15mm">Trineo <br> %%relai%%</text>
+		<text id = "TipoCaja"    class ="DatoImpresion" style="width:22.5mm">Tipo de Caja<br>%%TipoCaja%%</text>
+		<text id = "CajaEspecial" class="DatoImpresion" style="width: 12.5mm">Caja Esp.<br> %%CajaEspecial%% </text>
+		<text id = "UltColor2" class="DatoImpresion" style="width:35mm"><div class="DatoImpresion" style="border:none;display:%%biton%%">Color 2 <br>(%%codigo_color2%%) %%color2%%</div></text>
+</div>	
+
+
+<div class="ImagenImpresion">
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="782" height="1088">
+		<g transform="translate(127,710)  rotate(0,0,0) scale(0.28)">
+			%%svg_impr1%%
+		</g>
+		<g transform="translate(245,740)  rotate(270,0,0) scale(0.28)">
+			%%svg_impr2%%
+		</g>
+		<g transform="translate(570,200)  rotate(180,0,0) scale(0.18)">
+			%%svg_impr3%%
+		</g>
+		<g transform="translate(290,90)  rotate(90,0,0) scale(0.3)">
+			%%svg_impr4%%
+		</g>
+		<g transform="translate(505,670)  rotate(270,0,0) scale(0.3)">
+			%%svg_impr5%%
+		</g>
+		<g transform="translate(625,380)  rotate(0,0,0) scale(0.24)">
+			%%svg_impr6%%
+		</g>
+	</svg>
+</div>
+
+<img src="C:\J3D\UI\images\impresion\interior_R.png" id="interior_R" style="position:absolute;  width: 70mm; top:200mm; right:150mm; transform: rotate(90deg);">
+<img src="C:\J3D\UI\images\impresion\interior_L.png" id="interior_L" style="position:absolute;  width: 70mm; top:200mm; left:150mm;transform: rotate(270deg);">
+
+<img id="logo_EagleEYE" style="position:absolute; width:35mm; top:262mm; left:15mm;"></img>
+<text id="NombrePlantaImpr" style="position:absolute; width:40mm; top:263.2mm; left:52mm; font-size:18px;color:black">Valladolid</text>
+<text id="PJI_Barcode" class="" style="width:10mm">*%%pji%%-%%clepji%%*</text>
+<text id="PJI_sub1" class="" style="width:20mm">PJI</text>
+<text id="PJI_sub2" class="" style="width:20mm"><strong>%%pji%%-%%clepji%%</strong></text>
+
+
+</div>
+	<script>
+	function updateDefectText() {
+            ChangeModeSizeDefects(document.querySelector('input[name="mt"]:checked').id);
+        }
+		function ChangeModeSizeDefects(elm) {
+			document.getElementById("Inspecciones").innerHTML = "";
+			let mts = document.getElementsByName("mt");
+			for (var i = 0; i < mts.length; i++) {
+				mts[i].checked = false;
+			}
+			document.getElementById(elm).checked = true;
+		
+			let defectText = ""; // Variable para almacenar el texto correspondiente a la opción seleccionada
+		
+			if (document.getElementById("dscreens").checked) {
+				alert('Pantallas');
+			} else if (document.getElementById("drawdiscarded").checked) {
+				defectText = "Todos los defectos";
+			} else if (document.getElementById("drawndiscarded").checked) {
+				defectText = "Todos los defectos (sin descartados)"
+			} else if (document.getElementById("dactualfilter").checked) {
+				defectText = "Con filtro actual";
+			}
+		
+			// Actualizar el texto en el  HTML
+			document.getElementById("Defectos").innerText = defectText;
+		
+			ActualizeAdmin();
+		}
+		</script>
+		<text id="Defectos" class="" style="width:20mm"></text>
+
+</body>
+</html>

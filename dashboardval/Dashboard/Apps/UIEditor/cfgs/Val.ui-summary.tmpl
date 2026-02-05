@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SISTEMA AUTOMÁTICO DE DETECCIÓN DE DEFECTOS DE PINTURA</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="C:/J3D/UI/css/estilo.css">
+   </head>
+   <body style="margin:0; padding:0; border:0; background-color:white; position:absolute; top:0; left:0; transform: scale(1.0)">
+		<div id="cuerpo" style="opacity: 1;">            
+			<div id="inspecciones_doble">
+				<div class="inspeccion redondo sombra l_i" style="opacity: 1;">
+					<div class="info1 big">
+						<div id="IdInsp" style="display:none">%%id_inspeccion_0%%</div>
+						<div class="pedido">PJI %%vis_0%%</div>
+						<div class="vis"></div>
+						<div class="vuelta"></div>
+						<div class="color">(%%codigo_color1_0%%) %%color1_0%%
+							<div class="demo_color" style="background-color: #%%color_web1_0%%;"></div>
+						</div>
+						<div class="modelo">Modelo %%modelo_0%%</div>
+						<div class="pais">Pais %%pais_0%% </div>
+					</div>
+				</div>
+					<div class="ultima1">
+						<div class="pedido" style="display:%%display_cars_0%%">%%n_cars_0%% VOITURES (Limite %%cars_limit_0%%)</div>
+						<div class="pedido" style="display:%%display_hours_0%%">%%n_cars_0%% VOITURES (Limite %%hours_limit_0%% heures)</div>
+						<span class="color" >%%colorR_0%%<div class="all" style="display:%%display_all_colors_0%%">TOUTES LES COULEURS</div>
+							<div class="demo_color" style="background-color: #%%color_webR_0%%; display:%%display_color_webR_0%%"></div>
+						</span>
+					</div>
+					<div class="ultima2">
+						<!-- <img id="headerHeat" src="images/MinHeatMapHeader.png"> -->
+						<span class="color" >2%-4%
+							<div class="demo_color" style="background-color: #FAC1B9"></div>
+						</span>
+						<span class="color" >4%-8%
+							<div class="demo_color" style="background-color: #F58B7B"></div>
+						</span>
+						<span class="color" >8%-13%
+							<div class="demo_color" style="background-color: #F2644F"></div>
+						</span>                                                   
+						<span class="color" >13%-19%         
+							<div class="demo_color" style="background-color: #A21B08"></div>
+						</span>                                                   
+						<span class="color" >19%-25%         
+							<div class="demo_color" style="background-color: #510E04"></div>
+						</span>                                                   
+						<span class="color" >&gt 25%         
+							<div class="demo_color" style="background-color:  #A907FF"></div>
+						</span>
+					</div>	
+				</div>
+		 </div>   
+		<div style="position:absolute;top:0;display=flex; max-width:960px">
+			%%svg_0%%		
+		</div>	
+		<div style="position:absolute;top:0;left:960px;display=flex; max-width:960px">	
+			%%svgR_0%%
+		</div>
+	</body>
+</html>

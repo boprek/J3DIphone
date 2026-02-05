@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SISTEMA AUTOMÁTICO DE DETECCIÓN DE DEFECTOS DE PINTURA</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="C:/J3D/UI/css/estilo.css">
+   </head>
+   <body style="margin:0; padding:0; border:0; background-color:white; position:absolute; top:0; left:0; transform: scale(1.0)">
+		<div id="cuerpo" style="opacity: 1;">            
+			<div id="inspecciones_doble">
+				<div class="inspeccion redondo sombra l_i" style="opacity: 1;">
+					<div class="info1 big">
+						<div id="IdInsp" style="display:none">%%id_inspeccion_0%%</div>
+						<div class="pedido">LLA %%relai_0%%</div>
+						<div class="vis">PJI %%vis_0%%</div>
+						<div class="vuelta">Tour %%vuelta_0%%</div>
+						<div class="color">(%%codigo_color1_0%%) %%color1_0%%
+							<div class="demo_color" style="background-color: #%%color_web1_0%%;"></div>
+						</div>
+						<div class="modelo">Modèle %%modelo_0%%</div>
+						<div class="ppbm">PPBM %%ppbm_0%%</div>
+						<div class="linea">Ligne %%linea_origen_0%%</div>
+						<div class="pais">Pays %%pais_0%%&nbsp </div>
+					</div>
+				</div>   
+				<div class="inspeccion redondo sombra l_d" style="opacity: 1;">
+					<div class="info1 big">
+						<div id="IdInsp" style="display:none">%%id_inspeccion_1%%</div>
+						<div class="pedido">LLA %%relai_1%%</div>
+						<div class="vis">PJI %%vis_1%%</div>
+						<div class="vuelta">Tour %%vuelta_1%%</div>
+						<div class="color">(%%codigo_color1_1%%) %%color1_1%%
+							<div class="demo_color" style="background-color: #%%color_web1_1%%;"></div>
+						</div>
+						<div class="modelo">Modèle %%modelo_1%%</div>
+						<div class="ppbm">PPBM %%ppbm_1%%</div>
+						<div class="linea">Ligne %%linea_origen_1%%</div>
+						<div class="pais" Style="width: 20%">Pays %%pais_1%%&nbsp </div>
+					</div>
+				</div>
+				                             
+         </div>
+         <div id="errores" class="doble grande">
+             <div class="mensajes" style="display: none;"></div>
+         </div>
+      </div>
+		<div style="position:absolute;top:0;display=flex; max-width:960px">
+			%%svg_0%%			
+		</div>
+		<div style="position:absolute;top:0;left:960px;display=flex; max-width:960px">
+			%%svg_1%%
+		</div>			
+	</body>
+</html>
