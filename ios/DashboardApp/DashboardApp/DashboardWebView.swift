@@ -9,6 +9,7 @@ struct DashboardWebView: UIViewRepresentable {
     }
 
     var url: URL
+    var readAccessURL: URL?
     var reloadToken: UUID
     var onStateChange: (State) -> Void = { _ in }
 
@@ -36,8 +37,9 @@ struct DashboardWebView: UIViewRepresentable {
         context.coordinator.parent = self
         let shouldReload = context.coordinator.lastReloadToken != reloadToken
         let urlHasChanged = context.coordinator.currentURL != url
+        let readAccessChanged = context.coordinator.currentReadAccessURL != readAccessURL
 
-        if shouldReload || urlHasChanged {
+        if shouldReload || urlHasChanged || readAccessChanged {
             loadRequest(in: uiView, context: context)
         }
     }
@@ -45,8 +47,15 @@ struct DashboardWebView: UIViewRepresentable {
     private func loadRequest(in webView: WKWebView, context: Context) {
         context.coordinator.lastReloadToken = reloadToken
         context.coordinator.currentURL = url
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
-        webView.load(request)
+        context.coordinator.currentReadAccessURL = readAccessURL
+
+        if url.isFileURL {
+            let accessURL = readAccessURL ?? url.deletingLastPathComponent()
+            webView.loadFileURL(url, allowingReadAccessTo: accessURL)
+        } else {
+            let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+            webView.load(request)
+        }
     }
 
     private func userAgent() -> String {
@@ -58,11 +67,13 @@ struct DashboardWebView: UIViewRepresentable {
         var parent: DashboardWebView
         var lastReloadToken: UUID
         var currentURL: URL?
+        var currentReadAccessURL: URL?
 
         init(parent: DashboardWebView) {
             self.parent = parent
             self.lastReloadToken = parent.reloadToken
             self.currentURL = parent.url
+            self.currentReadAccessURL = parent.readAccessURL
         }
 
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

@@ -24,6 +24,7 @@ struct ContentView: View {
             if let destinationURL = viewModel.destinationURL {
                 DashboardWebView(
                     url: destinationURL,
+                        readAccessURL: viewModel.destinationReadAccessURL,
                     reloadToken: viewModel.reloadToken,
                     onStateChange: viewModel.handle(webState:)
                 )

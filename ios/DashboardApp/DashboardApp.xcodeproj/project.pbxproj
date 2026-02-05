@@ -13,6 +13,11 @@
 		D0E63B7E2D8E4EC400A1B1A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E63B6E2D8E4EC400A1B1A1 /* Assets.xcassets */; };
 		D0E63B7F2D8E4EC400A1B1A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E63B722D8E4EC400A1B1A1 /* LaunchScreen.storyboard */; };
 		D0E63B802D8E4EC400A1B1A1 /* Dash.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D0E63B712D8E4EC400A1B1A1 /* Dash.cfg */; };
+		D0E63C0A2D8FC6A500A1B1A1 /* J3DDashBoard.html in Resources */ = {isa = PBXBuildFile; fileRef = D0E63C1A2D8FC6F000A1B1A1 /* J3DDashBoard.html */; };
+		D0E63C0B2D8FC6A500A1B1A1 /* Apps in Resources */ = {isa = PBXBuildFile; fileRef = D0E63C1B2D8FC6F000A1B1A1 /* Apps */; };
+		D0E63C0C2D8FC6A500A1B1A1 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D0E63C1C2D8FC6F000A1B1A1 /* css */; };
+		D0E63C0D2D8FC6A500A1B1A1 /* images in Resources */ = {isa = PBXBuildFile; fileRef = D0E63C1D2D8FC6F000A1B1A1 /* images */; };
+		D0E63C0E2D8FC6A500A1B1A1 /* js in Resources */ = {isa = PBXBuildFile; fileRef = D0E63C1E2D8FC6F000A1B1A1 /* js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		D0E63B702D8E4EC400A1B1A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E63B732D8E4EC400A1B1A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0E63B712D8E4EC400A1B1A1 /* Dash.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; name = Dash.cfg; path = ../../Dash.cfg; sourceTree = SOURCE_ROOT; };
+		D0E63C1A2D8FC6F000A1B1A1 /* J3DDashBoard.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = J3DDashBoard.html; path = ../../J3DDashBoard.html; sourceTree = SOURCE_ROOT; };
+		D0E63C1B2D8FC6F000A1B1A1 /* Apps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Apps; path = ../../Apps; sourceTree = SOURCE_ROOT; };
+		D0E63C1C2D8FC6F000A1B1A1 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = ../../css; sourceTree = SOURCE_ROOT; };
+		D0E63C1D2D8FC6F000A1B1A1 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = ../../images; sourceTree = SOURCE_ROOT; };
+		D0E63C1E2D8FC6F000A1B1A1 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = ../../js; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,11 @@
 				D0E63B722D8E4EC400A1B1A1 /* LaunchScreen.storyboard */,
 				D0E63B702D8E4EC400A1B1A1 /* Info.plist */,
 				D0E63B712D8E4EC400A1B1A1 /* Dash.cfg */,
+				D0E63C1A2D8FC6F000A1B1A1 /* J3DDashBoard.html */,
+				D0E63C1B2D8FC6F000A1B1A1 /* Apps */,
+				D0E63C1C2D8FC6F000A1B1A1 /* css */,
+				D0E63C1D2D8FC6F000A1B1A1 /* images */,
+				D0E63C1E2D8FC6F000A1B1A1 /* js */,
 			);
 			path = DashboardApp;
 			sourceTree = "<group>";
@@ -129,6 +144,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E63C0A2D8FC6A500A1B1A1 /* J3DDashBoard.html in Resources */,
+				D0E63C0B2D8FC6A500A1B1A1 /* Apps in Resources */,
+				D0E63C0C2D8FC6A500A1B1A1 /* css in Resources */,
+				D0E63C0D2D8FC6A500A1B1A1 /* images in Resources */,
+				D0E63C0E2D8FC6A500A1B1A1 /* js in Resources */,
 				D0E63B7E2D8E4EC400A1B1A1 /* Assets.xcassets in Resources */,
 				D0E63B7F2D8E4EC400A1B1A1 /* LaunchScreen.storyboard in Resources */,
 				D0E63B802D8E4EC400A1B1A1 /* Dash.cfg in Resources */,
