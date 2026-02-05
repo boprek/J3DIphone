@@ -9,12 +9,12 @@
                     <view key="view" contentMode="scaleToFill" id="LaunchView">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.0235" green="0.0823" blue="0.1725" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0235" green="0.0823" blue="0.1725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TitleLabel">
                                 <rect key="frame" x="60" y="382" width="270" height="80"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
-                                <color key="textColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
                         <constraints>
